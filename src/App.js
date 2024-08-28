@@ -10,7 +10,7 @@ import Info from './components/Info';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App bg-defaultBody font-libreFranklin text-defaultBlack text-sm">
       <Header />
       <Background />
       <Info />

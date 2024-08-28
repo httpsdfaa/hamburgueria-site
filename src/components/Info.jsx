@@ -2,7 +2,7 @@ import React from "react";
 
 function Info() {
     return(
-        <section className="info flex px-16 py-6 justify-between font-libreFranklin text-defaultBlack text-sm">
+        <section className="info flex px-16 py-6 justify-between bg-[#F9F9F9]">
             <span className="time-func">
                 Funcionamento<br />
                 19h00 às 23h00
