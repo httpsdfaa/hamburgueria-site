@@ -14,7 +14,9 @@ module.exports = {
       'titleNavManteiga': '#F6F3E0',
       'buttomBlue': '#7274BB',
       'avermelhadoTittle': '#9F2E33',
-      'defaultBlack': '#303030'
+      'defaultBlack': '#303030',
+      'defaultBody': '#F1F1F1',
+      'borderColor': '#E0E0E0'
     }
   },
   plugins: [],
