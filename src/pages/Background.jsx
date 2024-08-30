@@ -1,6 +1,5 @@
 import React from "react";
 
-import "../styles/Background.css"
 import BgBanner from "../assets/banner-bg.png"
 
 function Background() {
