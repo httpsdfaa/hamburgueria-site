@@ -1,0 +1,9 @@
+.promotion {
+    display: flex !important;
+    justify-content: space-around !important;
+    align-items: center !important;
+}
+
+div.caption {
+    position: static !important;
+}
