@@ -5,19 +5,19 @@ import Image3 from '../assets/logo.png'
 
 export function ImageOne() {
     return (
-        <img src={Image1} />
+        <img src={Image1} className="rounded-full"/>
     )
 }
 
 export function ImageSecond() {
     return(
-        <img src={Image2} />
+        <img src={Image2} className="rounded-full"/>
     )
 }
 
 export function ImageThird() {
     return(
-        <img src={Image3} />
+        <img src={Image3} className="rounded-full"/>
     )
 }
 
