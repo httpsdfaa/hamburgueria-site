@@ -11,3 +11,11 @@
 .App {
   text-align: center;
 }
+
+.App a {
+  text-decoration: none;
+}
+
+.App li {
+  list-style-type: disc;
+}
