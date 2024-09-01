@@ -36,6 +36,7 @@ function SanduicheCard({
                 </Card.Text>
             </Card.Body>
             <ListGroup className="list-group-flush">
+                {/*LÓGICA PARA DEIXAR NULL OS QUE NÃO SÃO NECESSÁRIOS*/}
                 {item1 && <ListGroup.Item>{item1}</ListGroup.Item>}
                 {item2 && <ListGroup.Item>{item2}</ListGroup.Item>}
                 {item3 && <ListGroup.Item>{item3}</ListGroup.Item>}
@@ -78,6 +79,7 @@ function BebidaCard({
                 </Card.Text>
             </Card.Body>
             <ListGroup className="list-group-flush">
+                {/*LÓGICA PARA DEIXAR NULL OS QUE NÃO SÃO NECESSÁRIOS*/}
                 {item1 && <ListGroup.Item>{item1}</ListGroup.Item>}
                 {item2 && <ListGroup.Item>{item2}</ListGroup.Item>}
                 {item3 && <ListGroup.Item>{item3}</ListGroup.Item>}
