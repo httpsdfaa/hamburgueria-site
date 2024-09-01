@@ -21,7 +21,7 @@ function CarouselSlide() {
   return (
     <>
       <hr className='mx-8 '/>
-      <p className={`${font_family} text-2xl my-4`}>PROMOÇÕES</p>
+      <h2 className={`${font_family} text-2xl my-4`}>PROMOÇÕES</h2>
       <Carousel data-bs-theme="dark">
         <Carousel.Item interval={1000} className='px-32'>
           <section className={`promotion ${color_gradient} ${border_24px} ${padding_top}`}>
