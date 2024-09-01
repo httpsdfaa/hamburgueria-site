@@ -1,5 +1,7 @@
 import React from "react";
 
+import '../styles/Info.css'
+
 function Info() {
     return(
         <section className="info flex px-16 py-6 justify-between bg-[#F9F9F9]">

@@ -20,13 +20,13 @@ function CarouselSlide() {
 
   return (
     <>
-      <hr className='mx-8 '/>
+      <hr className='mx-8'/>
       <h2 className={`${font_family} text-2xl my-4`}>PROMOÇÕES</h2>
       <Carousel data-bs-theme="dark">
         <Carousel.Item interval={1000} className='px-32'>
-          <section className={`promotion ${color_gradient} ${border_24px} ${padding_top}`}>
+          <section className={`promotion ${color_gradient} ${border_24px} ${padding_top} carousel-item`}>
             <img
-              className="d-block w-80 rounded-full"
+              className="img-promotion d-block w-80 rounded-full"
               src={ImageOne}
               alt="First slide"
             />
@@ -44,9 +44,9 @@ function CarouselSlide() {
           </section>
         </Carousel.Item>
         <Carousel.Item interval={500} className='px-32'>
-          <section className={`promotion ${color_gradient} ${border_24px} ${padding_top}`}>
+          <section className={`promotion ${color_gradient} ${border_24px} ${padding_top} carousel-item`}>
             <img
-              className="d-block w-80 rounded-full"
+              className="img-promotion d-block w-80 rounded-full"
               src={ImageOne}
               alt="Second slide"
             />
@@ -64,9 +64,9 @@ function CarouselSlide() {
           </section>
         </Carousel.Item>
         <Carousel.Item className='px-32'>
-          <section className={`promotion ${color_gradient} ${border_24px} ${padding_top}`}>
+          <section className={`promotion ${color_gradient} ${border_24px} ${padding_top} carousel-item`}>
             <img
-              className="d-block w-80 rounded-full"
+              className="img-promotion d-block w-80 rounded-full"
               src={ImageOne}
               alt="Third slide"
             />
