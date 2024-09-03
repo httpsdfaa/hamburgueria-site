@@ -8,3 +8,9 @@
         padding: 0 50px !important;
     }
 }
+
+@media screen and (max-width: 600px) {
+    .menu-list{
+        display: none !important;
+    }
+}
