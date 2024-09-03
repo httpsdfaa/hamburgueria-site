@@ -43,7 +43,7 @@ function Header() {
                     </section>
             }
             {
-                !toggle ?
+                toggle ?
                     <nav className="navbar font-yaLike" style={{ display: !toggle ? 'none !important' : 'flex !important' }}>
                         <a href="/" className="mr-5 text-titleNavManteiga">HOME</a>
                         <a href="/" className="ml-5 text-titleNavManteiga">CONTATO</a>
