@@ -3,9 +3,9 @@ import React from 'react';
 const MenuList = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="16"
-    height="16"
-    fill="currentColor"
+    width="28"
+    height="28"
+    fill="#303030"
     className="bi bi-list"
     viewBox="0 0 16 16"
   >
