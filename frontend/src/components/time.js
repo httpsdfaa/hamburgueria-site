@@ -3,8 +3,10 @@ import pt from 'dayjs/locale/pt-br' // Locale
 dayjs.locale(pt)
 
 
-function time(){
+export function time(){
     return dayjs().format('dddd')
 }
 
-export default time;
+export function hour(){
+    return dayjs().format('H')
+}

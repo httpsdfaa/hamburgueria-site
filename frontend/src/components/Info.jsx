@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import time from "./time";
+import {time, hour} from "./time";
 
 import '../styles/Info.css'
 
@@ -14,16 +14,20 @@ function Info() {
     const [toggle, setToggle] = useState(false)
 
     const today = time()
+    const hour_const = hour() // 20
 
     // Caso seja Segunda ou terça mostrará fechado
     useEffect(() => {
         // Comparando se o estabelecimento estará ou não fechado
-        if (today === dayClose[1] || today === dayClose[2]) {
+        if(today === dayClose[1] || today === dayClose[2]){
+            setToggle(false)
+        } else if(hour_const >= 0 && hour_const < 19) {
             setToggle(false)
         } else {
             setToggle(true)
         }
-    }, [today])
+
+    }, [today, hour_const])
 
     return (
         <section className="info flex px-16 py-6 justify-between bg-[#F9F9F9]">
