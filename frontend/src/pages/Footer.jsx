@@ -1,4 +1,5 @@
 import React from "react";
+import MapsGoogle from "../components/Maps.tsx";
 
 import Logo from '../assets/logo.png'
 
@@ -12,6 +13,7 @@ function Footer() {
                 </p>
                 <img src={Logo} alt="logo" className="rounded-full w-40"/>
             </section>
+            <MapsGoogle />
             <section className="developer absolute bottom-0 text-center w-full border-t-2 py-6">Copyright© 2024 - Deivison Andrade</section>
         </footer>
     )
