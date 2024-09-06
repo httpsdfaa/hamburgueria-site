@@ -1,6 +1,7 @@
 import 'dotenv/config'
 import React from 'react';
 
+import '../styles/Maps.css'
 
 // A DOCUMENTAÇÃO FOI SEGUIDA DO SITE DEVELOPERS GOOGLE MAPS
 import {
@@ -29,10 +30,19 @@ function mapsGoogle() {
             apiKey={`${process.env.REACT_APP_KEY_API}`} // Chave Api google
             onLoad={() => console.log('Maps API has loaded.')}  // Verificando se carregou
         >
-            <Map
-                defaultZoom={15} // Zoom onde localiza o centro
+            <Map id='mapContainer' className='mapContainer'
+                defaultZoom={16} // Zoom onde localiza o centro
                 defaultCenter={cordMaps} // Cordenadas do centro desejado
                 mapId={'65559ab5179aaa7'} // Id do mapa criado no console do google
+                gestureHandling={'greedy'} // Gesto do cursor do mapa
+                // style={{
+                //     maxWidth: '350px',
+                //     minWidth: '100px',
+                //     height: '200px',
+                //     bottom: '-30px',
+                //     transform: 'translate(5%, 5%)'
+                    
+                // }}
                 onCameraChanged={(ev: MapCameraChangedEvent) =>
                     console.log('camera changed:', ev.detail.center, 'zoom:', ev.detail.zoom)
                 }
@@ -51,7 +61,7 @@ const PoiMarkers = (props: { pois: Poi[] }) => {
                 <AdvancedMarker
                     key={poi.key}
                     position={poi.location}>
-                    <Pin background={'#FBBC04'} glyphColor={'#000'} borderColor={'#000'} />
+                    <Pin background={'#815151'} glyphColor={'#ff0000'} borderColor={'#e12626'} />
                 </AdvancedMarker>
             ))}
         </>

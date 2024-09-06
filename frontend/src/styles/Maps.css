@@ -1,0 +1,7 @@
+.mapContainer {
+    display: block;
+    width: 100%;
+    overflow: visible;
+    height: 350px;
+    margin-top: 65px;
+}
