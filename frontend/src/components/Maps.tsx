@@ -27,7 +27,7 @@ const cordMaps = {
 function mapsGoogle() {
     return (
         <APIProvider
-            apiKey={`${process.env.REACT_APP_KEY_API}`} // Chave Api google
+            apiKey={`${'Adicionar_chave_depois'}`} // Chave Api google
             onLoad={() => console.log('Maps API has loaded.')}  // Verificando se carregou
         >
             <Map id='mapContainer' className='mapContainer'
