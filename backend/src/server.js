@@ -1,3 +1,12 @@
+// Configuração dotenv
+const dotenv = require('dotenv')
+const path = require('path')
+dotenv.config({ path: path.resolve(__dirname, './config/.env') })
+
+// Db
+const db = require('./database/dbConnection')
+console.log(db)
+
 const express = require('express');
 const app = express();
 
@@ -6,6 +15,7 @@ app.get('/', (req, res) => {
 })
 
 
-app.listen(3001, () => {
-    console.log("Node Executando na porta 3001")
+const PORT = process.env.PORT
+app.listen(PORT, () => {
+    console.log("Node Executando na porta", PORT)
 })

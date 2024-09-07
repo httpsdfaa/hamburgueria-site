@@ -6,7 +6,7 @@ const path = require('path')
 dotenv.config({ path: path.resolve(__dirname, '../config/.env') })
 
 // URI string
-const uri = process.env.DATABASE_URL 
+const uri = process.env.DATABASE_URL
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
@@ -16,6 +16,7 @@ const client = new MongoClient(uri, {
         deprecationErrors: true,
     }
 });
+
 
 async function run() {
     try {
@@ -28,6 +29,7 @@ async function run() {
         // Ensures that the client will close when you finish/error
         await client.close();
     }
+
+    
 }
 run().catch(console.dir);
-
