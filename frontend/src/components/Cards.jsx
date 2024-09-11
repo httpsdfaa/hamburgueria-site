@@ -1,4 +1,6 @@
+import axios from 'axios';
 import React from 'react';
+
 
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
@@ -98,6 +100,33 @@ function BebidaCard({
 }
 
 function Cards() {
+
+    // fazendo requisição
+    axios.get('http://localhost:3001/products')
+        .then(function(response){
+            console.log(response.data.sanduiches)
+            const sanduichesIndex = response.data.sanduiches
+
+            // UTILIZAR EFFECTS DIRETO NA TAG PAR JÁ IR RENDERIZANDO OS DADOS
+            for(let i in sanduichesIndex){
+                const id = sanduichesIndex[i].id
+                const title = sanduichesIndex[i].title
+                const price = sanduichesIndex[i].price
+                const text_description = sanduichesIndex[i].text_description
+                const item1 = sanduichesIndex[i].item1
+                const item2 = sanduichesIndex[i].tem2
+                const item3 = sanduichesIndex[i].item3
+                const item4 = sanduichesIndex[i].item4
+                const item5 = sanduichesIndex[i].item5
+                const item6 = sanduichesIndex[i].item6
+                const item7 = sanduichesIndex[i].item7
+            }
+        }).catch(function(error){
+            console.error('erro na requisição', error)
+        }).finally(function(){
+            console.log('requisição finalizada')
+        })
+
     return (
         <>
             <h2 className={`${font_family} text-2xl my-4`}>SANDUÍCHES</h2>
@@ -112,7 +141,7 @@ function Cards() {
                     item2='Item 2'
                     item3='Para acrescentar mais item seguir os parâmetros'
                 />
-                <SanduicheCard
+                {/* <SanduicheCard
                     id='card-b'
                     title='NOME_SANDUICHE B'
                     image={ImageSanduiche}
@@ -181,7 +210,7 @@ function Cards() {
                     item1='Item 1'
                     item2='Item 2'
                     item3='Para acrescentar mais item seguir os parâmetros'
-                />
+                /> */}
             </section>
 
             <h2 className={`${font_family} text-2xl my-4`}>BEBIDAS</h2>
@@ -195,7 +224,7 @@ function Cards() {
                     item1='600ml'
                     item2='Para acrescentar mais item seguir os parâmetros'
                 />
-                <BebidaCard 
+                {/* <BebidaCard 
                     id='bebida-b'
                     title='BEBIDA B'
                     image={ImageBebida}
@@ -257,7 +286,7 @@ function Cards() {
                     text_description='Descrição completa sobre o sanduíche'
                     item1='600ml'
                     item2='Para acrescentar mais item seguir os parâmetros'
-                />
+                /> */}
             </section>
         </>
     );
