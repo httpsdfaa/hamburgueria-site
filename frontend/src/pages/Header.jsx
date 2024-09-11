@@ -12,7 +12,6 @@ import '../styles/Header.css'
 function Header() {
 
     const [toggle, setToggle] = useState(true ? window.innerWidth > 600 : false);
-    const [isActive, setActive] = useState(false)
     const navigate = useNavigate();
 
     // width maior 600 redenrizar navbar
@@ -42,12 +41,15 @@ function Header() {
 
     return (
         <header className="header flex justify-between items-center bg-marromAvermelhado h-20 w-full px-20">
+
             {/* Botão para navegar para a página carrinho */}
             <button onClick={openCart} className="div-cart">
                 <CartIcon />
             </button>
             <img className="img-logo rounded-full w-28 h-28 relative top-1/2 z-30" src={Logo} alt="logo"></img>
-            {// Caso navbar esteja não redenrizado mostrar icon menu
+
+            {
+                // Caso navbar esteja não redenrizado mostrar icon menu
                 !toggle ?
                     < section className="menu-list" onClick={onclick}>
                         <MenuList />
@@ -60,7 +62,7 @@ function Header() {
             {
                 toggle ?
                     <nav className="navbar font-yaLike" style={{ display: !toggle ? 'none !important' : 'flex !important' }}>
-                        <a href="/home" className="mr-5 text-titleNavManteiga">HOME</a>
+                        <a href="/" className="mr-5 text-titleNavManteiga">HOME</a>
                         <a href="#footer" className="ml-5 mr-5 text-titleNavManteiga">CONTATO</a>
                     </nav> : null
             }

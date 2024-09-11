@@ -1,3 +1,4 @@
 .section-cart {
     background: red;
+    overflow: auto;
 }

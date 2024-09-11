@@ -3,7 +3,7 @@ import '../styles/Cart.css';
 
 const Cart = () => {
     return (
-        <section className="section-cart flex absolute top-0 h-full " id="section-cart">
+        <section className="section-cart flex h-full w-full z-30" id="section-cart">
             <p>Sacola</p>
         </section>
     );
