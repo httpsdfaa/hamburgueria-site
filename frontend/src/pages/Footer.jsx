@@ -6,7 +6,7 @@ import '../styles/Footer.css'
 
 function Footer() {
     return (
-        <footer className="footer relative bg-gradient-to-b from-[#3D2727] to-[#4C3234] text-[#FFFFFF] font-libreFranklin">
+        <footer id="footer" className="footer relative bg-gradient-to-b from-[#3D2727] to-[#4C3234] text-[#FFFFFF] font-libreFranklin">
             <section className="info flex items-center justify-around inset-y-1/3 px-16 pt-16">
                 <p>CNPJ:11.111.111/0001-11<br />
                     Av.endereço rua, bairro, 999<br />
