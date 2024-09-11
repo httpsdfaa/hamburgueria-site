@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 import Logo from "../assets/logo.png"
 import MenuList from "../assets/icons/MenuList";
 import CloseIcon from "../assets/icons/CloseIcon";
+import CartIcon from "../assets/icons/CartIcon";
 
 import '../styles/Header.css'
 
@@ -30,8 +32,12 @@ function Header() {
     }
 
     return (
-        <header className="header flex justify-between items-center bg-marromAvermelhado h-20 w-full px-28">
-            <img className="img-logo rounded-full w-28 h-28 relative top-1/2 z-10" src={Logo} alt="logo"></img>
+        <header className="header flex justify-between items-center bg-marromAvermelhado h-20 w-full px-20">
+            <div className="div-cart">
+                {/* Routa para acessar carrinho */}
+                <Link to="/carrinho"><a><CartIcon /></a></Link>
+            </div>
+            <img className="img-logo rounded-full w-28 h-28 relative top-1/2 z-30" src={Logo} alt="logo"></img>
             {// Caso navbar esteja não redenrizado mostrar icon menu
                 !toggle ?
                     < section className="menu-list" onClick={onclick}>
@@ -45,8 +51,8 @@ function Header() {
             {
                 toggle ?
                     <nav className="navbar font-yaLike" style={{ display: !toggle ? 'none !important' : 'flex !important' }}>
-                        <a href="/" className="mr-5 text-titleNavManteiga">HOME</a>
-                        <a href="/" className="ml-5 text-titleNavManteiga">CONTATO</a>
+                        <a href="/home" className="mr-5 text-titleNavManteiga">HOME</a>
+                        <a href="#footer" className="ml-5 mr-5 text-titleNavManteiga">CONTATO</a>
                     </nav> : null
             }
         </header >
