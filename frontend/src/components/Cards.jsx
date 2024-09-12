@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 
 import Card from 'react-bootstrap/Card';
@@ -101,129 +101,67 @@ function BebidaCard({
 
 function Cards() {
 
-    // fazendo requisição
-    axios.get('http://localhost:3001/products')
-        .then(function(response){
-            console.log(response.data.sanduiches)
-            const sanduichesIndex = response.data.sanduiches
+    const [burger, setBurger] = useState([]);
+    const [drink, setDrink] = useState([]);
 
-            // UTILIZAR EFFECTS DIRETO NA TAG PAR JÁ IR RENDERIZANDO OS DADOS
-            for(let i in sanduichesIndex){
-                const id = sanduichesIndex[i].id
-                const title = sanduichesIndex[i].title
-                const price = sanduichesIndex[i].price
-                const text_description = sanduichesIndex[i].text_description
-                const item1 = sanduichesIndex[i].item1
-                const item2 = sanduichesIndex[i].tem2
-                const item3 = sanduichesIndex[i].item3
-                const item4 = sanduichesIndex[i].item4
-                const item5 = sanduichesIndex[i].item5
-                const item6 = sanduichesIndex[i].item6
-                const item7 = sanduichesIndex[i].item7
+    useEffect(() => {
+        const axiosBurger = async () => {
+            try {
+                // fazendo requisição
+                const response = await axios.get('http://localhost:3001/products')
+                setBurger(response.data.sanduiches)
+                setDrink(response.data.bebidas)
+            } catch (error) {
+                console.error('Erro na requisição', error)
+            } finally {
+                console.log('Requisição finalizada')
             }
-        }).catch(function(error){
-            console.error('erro na requisição', error)
-        }).finally(function(){
-            console.log('requisição finalizada')
-        })
+
+        }
+
+        axiosBurger();
+        setInterval(axiosBurger, 30 * 60 * 1000) // 30 minutos * 60 segundos * 1000 milisegundos. A cada 30 minutos dispara o intervalo para atualização
+    }, [])
 
     return (
         <>
             <h2 className={`${font_family} text-2xl my-4`}>SANDUÍCHES</h2>
-            <section id='sanduiches'className='flex flex-wrap items-center justify-center'>
-                <SanduicheCard
-                    id='card-a'
-                    title='NOME_SANDUICHE A'
-                    text_description='Descrição completa sobre o sanduíche'
-                    image={ImageSanduiche}
-                    price='R$ 0,000'
-                    item1='Item 1'
-                    item2='Item 2'
-                    item3='Para acrescentar mais item seguir os parâmetros'
-                />
-                {/* <SanduicheCard
-                    id='card-b'
-                    title='NOME_SANDUICHE B'
-                    image={ImageSanduiche}
-                    price='R$ 0,000'
-                    text_description='Descrição completa sobre o sanduíche'
-                    item1='Item 1'
-                    item2='Item 2'
-                    item3='Para acrescentar mais item seguir os parâmetros'
-                />
-                <SanduicheCard
-                    id='card-c'
-                    title='NOME_SANDUICHE C'
-                    image={ImageSanduiche}
-                    price='R$ 0,000'
-                    text_description='Descrição completa sobre o sanduíche'
-                    item1='Item 1'
-                    item2='Item 2'
-                    item3='Para acrescentar mais item seguir os parâmetros'
-                />
-                <SanduicheCard
-                    id='card-d'
-                    title='NOME_SANDUICHE D'
-                    image={ImageSanduiche}
-                    price='R$ 0,000'
-                    text_description='Descrição completa sobre o sanduíche'
-                    item1='Item 1'
-                    item2='Item 2'
-                    item3='Para acrescentar mais item seguir os parâmetros'
-                />
-                <SanduicheCard
-                    id='card-E'
-                    title='NOME_SANDUICHE E'
-                    image={ImageSanduiche}
-                    price='R$ 0,000'
-                    text_description='Descrição completa sobre o sanduíche'
-                    item1='Item 1'
-                    item2='Item 2'
-                    item3='Para acrescentar mais item seguir os parâmetros'
-                />
-                <SanduicheCard
-                    id='card-f'
-                    title='NOME_SANDUICHE f'
-                    image={ImageSanduiche}
-                    price='R$ 0,000'
-                    text_description='Descrição completa sobre o sanduíche'
-                    item1='Item 1'
-                    item2='Item 2'
-                    item3='Para acrescentar mais item seguir os parâmetros'
-                />
-                <SanduicheCard
-                    id='card-g'
-                    title='NOME_SANDUICHE G'
-                    image={ImageSanduiche}
-                    price='R$ 0,000'
-                    text_description='Descrição completa sobre o sanduíche'
-                    item1='Item 1'
-                    item2='Item 2'
-                    item3='Para acrescentar mais item seguir os parâmetros'
-                />
-                <SanduicheCard
-                    id='card-h'
-                    title='NOME_SANDUICHE H'
-                    image={ImageSanduiche}
-                    price='R$ 0,000'
-                    text_description='Descrição completa sobre o sanduíche'
-                    item1='Item 1'
-                    item2='Item 2'
-                    item3='Para acrescentar mais item seguir os parâmetros'
-                /> */}
+            <section id='sanduiches' className='flex flex-wrap items-center justify-center'>
+
+
+                {
+                    burger.map(burgerItem => (
+                        <SanduicheCard
+                            key={burgerItem.id}
+                            id={burgerItem.id}
+                            title={burgerItem.title}
+                            text_description={burgerItem.text_description}
+                            image={burgerItem.image}
+                            price={burgerItem.price}
+                            item1={burgerItem.item1}
+                            item2={burgerItem.item2}
+                            item3={burgerItem.item3}
+                        />
+                    )
+                    )
+                }
             </section>
 
             <h2 className={`${font_family} text-2xl my-4`}>BEBIDAS</h2>
-            <section id='bebidas'className='flex flex-wrap items-center justify-center'>
-                <BebidaCard 
-                    id='bebida-a'
-                    title='BEBIDA A'
-                    image={ImageBebida}
-                    price='R$ 0,000'
-                    text_description='Descrição completa sobre o sanduíche'
-                    item1='600ml'
-                    item2='Para acrescentar mais item seguir os parâmetros'
-                />
+            <section id='bebidas' className='flex flex-wrap items-center justify-center'>
+                {
+                    drink.map(drinkItem => 
+                <BebidaCard
+                    key={drinkItem.id}
+                    id={drinkItem.id}
+                    title={drinkItem.title}
+                    image={drinkItem.image}
+                    price={drinkItem.price}
+                    text_description={drinkItem.text_description}
+                    item1={drinkItem.item1}
+                    item2={drinkItem.item2}
+                />)
+                }
                 {/* <BebidaCard 
                     id='bebida-b'
                     title='BEBIDA B'
