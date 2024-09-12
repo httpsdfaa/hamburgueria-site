@@ -5,9 +5,6 @@ import React, { useState, useEffect } from 'react';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 
-import ImageSanduiche from '../assets/sanduiche.png';
-import ImageBebida from '../assets/coca-cola.jpg';
-
 const marginPrincipal = 'm-12'
 const minWidth = 'min-w-96'
 const maxWidth = 'max-w-xl'
@@ -162,69 +159,6 @@ function Cards() {
                     item2={drinkItem.item2}
                 />)
                 }
-                {/* <BebidaCard 
-                    id='bebida-b'
-                    title='BEBIDA B'
-                    image={ImageBebida}
-                    price='R$ 0,000'
-                    text_description='Descrição completa sobre o sanduíche'
-                    item1='600ml'
-                    item2='Para acrescentar mais item seguir os parâmetros'
-                />
-                <BebidaCard 
-                    id='bebida-c'
-                    title='BEBIDA C'
-                    image={ImageBebida}
-                    price='R$ 0,000'
-                    text_description='Descrição completa sobre o sanduíche'
-                    item1='600ml'
-                    item2='Para acrescentar mais item seguir os parâmetros'
-                />
-                <BebidaCard 
-                    id='bebida-d'
-                    title='BEBIDA D'
-                    image={ImageBebida}
-                    price='R$ 0,000'
-                    text_description='Descrição completa sobre o sanduíche'
-                    item1='600ml'
-                    item2='Para acrescentar mais item seguir os parâmetros'
-                />
-                <BebidaCard 
-                    id='bebida-e'
-                    title='BEBIDA E'
-                    image={ImageBebida}
-                    price='R$ 0,000'
-                    text_description='Descrição completa sobre o sanduíche'
-                    item1='600ml'
-                    item2='Para acrescentar mais item seguir os parâmetros'
-                />
-                <BebidaCard 
-                    id='bebida-f'
-                    title='BEBIDA F'
-                    image={ImageBebida}
-                    price='R$ 0,000'
-                    text_description='Descrição completa sobre o sanduíche'
-                    item1='600ml'
-                    item2='Para acrescentar mais item seguir os parâmetros'
-                />
-                <BebidaCard 
-                    id='bebida-g'
-                    title='BEBIDA G'
-                    image={ImageBebida}
-                    price='R$ 0,000'
-                    text_description='Descrição completa sobre o sanduíche'
-                    item1='600ml'
-                    item2='Para acrescentar mais item seguir os parâmetros'
-                />
-                <BebidaCard 
-                    id='bebida-h'
-                    title='BEBIDA H'
-                    image={ImageBebida}
-                    price='R$ 0,000'
-                    text_description='Descrição completa sobre o sanduíche'
-                    item1='600ml'
-                    item2='Para acrescentar mais item seguir os parâmetros'
-                /> */}
             </section>
         </>
     );
