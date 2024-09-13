@@ -7,7 +7,7 @@ import '../styles/Cart.css';
 const Cart = () => {
     return (
         <section className="section-cart flex flex-col h-full w-full z-30 bg-defaultBody" id="section-cart">
-            <h1>Meu pedido</h1>
+            <h1 className='font-yaLike text-defaultBlack'>Meu pedido</h1>
             <NotProduct />
             <UpdateProduct />
             <ProductControl />
@@ -23,7 +23,7 @@ const NotProduct = () => {
     return (
         <>
             <div className="not-product">
-                <h4>Nenhum produto</h4>
+                <h4 className='font-yaLike text-defaultBlack'>Nenhum produto!</h4>
                 <Link to='/'>Voltar para o início</Link>
             </div>
         </>
@@ -48,8 +48,8 @@ const DataUser = () => {
 
     return (
         <>
-            <section className="data-user ">
-                <h3>Informe seus dados</h3>
+            <section className="data-user flex flex-col w-40">
+                <h3 className='font-yaLike text-defaultBlack'>Informe seus dados</h3>
                 <form action="/" className="form-tag flex flex-col">
                     <label htmlFor="name">Nome: * </label>
                     <input type="text" id='name' name='name' placeholder='Nome' />
@@ -57,7 +57,15 @@ const DataUser = () => {
                     <label htmlFor="phone">Contato {`(whatsapp)`}: *</label>
                     <input type="tel" id='phone' name='phone' placeholder='DDD + Número' pattern={regex} />
                 </form>
+                <form className="delivey-method">
+                    <input type="radio" id='delivey' name='delivey' value='Entrega'/>
+                    <label htmlFor="delivey">Entrega</label>
+                    <br/>
+                    <input type="radio" id='pickup local' name='delivery' value='Retirada no local'/>
+                    <label htmlFor="local">Retirada no local</label>
+                </form>
             </section>
+            {/* UTILIZAR USESTATE PARA LIDAR COM OS ESTADOS DE CHECKUP. ONCHANGE TEM SEMPRE QUE SER UTILIZADO. */}
         </>
     )
 }
