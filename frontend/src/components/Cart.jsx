@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button'
 
@@ -46,6 +46,13 @@ const DataUser = () => {
     // validação do regex para formato brasilieiro
     const regex = /^\d{2}[\s.-]?\d[\s.-]?\d{4}[\s.-]?\d{4}$/; // para formato de número com hifen e espaços
 
+    // Validação de check em radio
+    const [selectOption, setSelectionOption] = useState(null);
+
+    const handleChange = (event) => {
+        setSelectionOption(event.target.value)
+    }
+
     return (
         <>
             <section className="data-user flex flex-col w-40">
@@ -58,14 +65,31 @@ const DataUser = () => {
                     <input type="tel" id='phone' name='phone' placeholder='DDD + Número' pattern={regex} />
                 </form>
                 <form className="delivey-method">
-                    <input type="radio" id='delivey' name='delivey' value='Entrega'/>
+                    <h6>Selecione a forma de entrega</h6>
+                    <input type="radio" id='delivey' name='delivey' value='Entrega' checked={selectOption === 'Entrega'} onChange={handleChange}/>
                     <label htmlFor="delivey">Entrega</label>
                     <br/>
-                    <input type="radio" id='pickup local' name='delivery' value='Retirada no local'/>
+                    <input type="radio" id='pickup local' name='delivery' value='Retirada no local' checked={selectOption === 'Retirada no local'} onChange={handleChange}/>
                     <label htmlFor="local">Retirada no local</label>
                 </form>
+                <form action="/" className='pay-method'>
+                    <h6>Selecione a forma de pagamento</h6>
+                    <select name="payMethod" id="payMethod">
+                        <option value="null"></option>
+                        <option value="Dinheiro">Dinheiro</option>
+                        <option value="Cartão de crédito">Cartão de crédito</option>
+                        <option value="Cartão de débito">Cartão de débito</option>
+                        <option value="pix">Pix</option>
+                    </select>
+                </form>
+                <form action="/">
+                    <h6>Observações</h6>
+                    <input type="text"/>
+                </form>
+                <div className="agree">
+                    <span>Concordo com a <Link to='/'>política da privacidade</Link></span>
+                </div>
             </section>
-            {/* UTILIZAR USESTATE PARA LIDAR COM OS ESTADOS DE CHECKUP. ONCHANGE TEM SEMPRE QUE SER UTILIZADO. */}
         </>
     )
 }
