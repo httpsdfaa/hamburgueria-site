@@ -26,3 +26,7 @@
   pointer-events: none; /* Não interage com eventos de clique */
   transition: opacity 0.3s;
 }
+
+:root {
+  --marrom-avermelhado: #805557;
+}

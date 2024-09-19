@@ -34,8 +34,8 @@ const UpdateProduct = () => {
     return (
         <>
             <div className="update-product">
-                <span>Adicione mais produtos</span>
-                <Button variant='primary' size='sm'> + produtos</Button>
+                <span className='mx-2'>Adicione mais produtos</span>
+                <Button className="mx-2" variant='primary' size='sm'> + produtos</Button>
             </div>
         </>
     )
@@ -56,25 +56,25 @@ const DataUser = () => {
     return (
         <>
             <section className="data-user flex flex-col w-40">
-                <h3 className='font-yaLike text-defaultBlack'>Informe seus dados</h3>
+                <h3 className='font-yaLike text-defaultBlack mb-6'>Informe seus dados</h3>
                 <form action="/" className="form-tag flex flex-col">
                     <label htmlFor="name">Nome: * </label>
-                    <input type="text" id='name' name='name' placeholder='Nome' />
+                    <input className="style-input style-focus" type="text" id='name' name='name' placeholder='Nome' />
 
                     <label htmlFor="phone">Contato {`(whatsapp)`}: *</label>
-                    <input type="tel" id='phone' name='phone' placeholder='DDD + Número' pattern={regex} />
+                    <input className="style-input style-focus" type="tel" id='phone' name='phone' placeholder='DDD + Número' pattern={regex} />
                 </form>
-                <form className="delivey-method">
+                <form className="delivey-method mb-8">
                     <h6>Selecione a forma de entrega</h6>
                     <input type="radio" id='delivey' name='delivey' value='Entrega' checked={selectOption === 'Entrega'} onChange={handleChange}/>
                     <label htmlFor="delivey">Entrega</label>
-                    <br/>
+                    <br/><hr/>
                     <input type="radio" id='pickup local' name='delivery' value='Retirada no local' checked={selectOption === 'Retirada no local'} onChange={handleChange}/>
                     <label htmlFor="local">Retirada no local</label>
                 </form>
                 <form action="/" className='pay-method'>
                     <h6>Selecione a forma de pagamento</h6>
-                    <select name="payMethod" id="payMethod">
+                    <select className="style-focus mb-8" name="payMethod" id="payMethod">
                         <option value="null"></option>
                         <option value="Dinheiro">Dinheiro</option>
                         <option value="Cartão de crédito">Cartão de crédito</option>
@@ -84,10 +84,11 @@ const DataUser = () => {
                 </form>
                 <form action="/">
                     <h6>Observações</h6>
-                    <input type="text"/>
+                    <input className="style-input style-focus" type="text"/>
                 </form>
                 <div className="agree">
-                    <span>Concordo com a <Link to='/'>política da privacidade</Link></span>
+                    <input type="checkbox" name="private-check" id="private-check" />
+                    <label htmlFor="private-check">Concordo com a <Link to='/'>política da privacidade</Link></label>
                 </div>
             </section>
         </>
