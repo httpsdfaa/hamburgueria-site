@@ -24,7 +24,7 @@
   background: rgba(0, 0, 0, 0.5);
   opacity: 0.5;
   pointer-events: none; /* Não interage com eventos de clique */
-  transition: opacity 0.3s;
+  transition: opacity 0.3s; /* transição de 3 segundos */
 }
 
 :root {
