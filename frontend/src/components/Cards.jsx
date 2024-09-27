@@ -1,9 +1,11 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 
-
+import { CgAdd } from "react-icons/cg";
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
+
+import '../styles/Cards.css'
 
 const marginPrincipal = 'm-12'
 const minWidth = 'min-w-96'
@@ -11,6 +13,7 @@ const maxWidth = 'max-w-xl'
 const font_family = 'font-yaLike'
 
 function SanduicheCard({
+    id,
     title,
     text_description,
     image,
@@ -21,12 +24,19 @@ function SanduicheCard({
     item4 = null,
     item5 = null,
     item6 = null,
-    item7 = null
+    item7 = null,
+    setCart // props para armazenar o valor do id
 }) {
+
+    const addProductClick = () => {
+        setCart(prevCart => [...prevCart, id]) // Incrementando a cada clicada
+    }
+
     return (
         <Card style={{ width: '18rem' }} className={`${marginPrincipal} ${minWidth} ${maxWidth}`}>
             <Card.Img variant="top" src={image} />
             <Card.Body>
+                <span>{id}</span>
                 <div className="text-avermelhadoTittle font-yaLike">
                     <Card.Title>{title}</Card.Title>
                 </div>
@@ -46,8 +56,7 @@ function SanduicheCard({
             </ListGroup>
             <Card.Body>
                 <h4 className='text-avermelhadoTittle font-yaLike'>{price}</h4>
-                <Card.Link href="#">Card Link</Card.Link>
-                <Card.Link href="#">Another Link</Card.Link>
+                <CgAdd onClick={addProductClick} className='icons-cards' />
             </Card.Body>
         </Card>
     );
@@ -89,8 +98,7 @@ function BebidaCard({
             </ListGroup>
             <Card.Body>
                 <h4 className='text-avermelhadoTittle font-yaLike'>{price}</h4>
-                <Card.Link href="#">Card Link</Card.Link>
-                <Card.Link href="#">Another Link</Card.Link>
+                <CgAdd className='icons-cards' />
             </Card.Body>
         </Card>
     );
@@ -100,6 +108,9 @@ function Cards() {
 
     const [burger, setBurger] = useState([]);
     const [drink, setDrink] = useState([]);
+    const [cart, setCart] = useState([]); 
+
+    console.log(cart)
 
     useEffect(() => {
         const axiosBurger = async () => {
@@ -119,12 +130,10 @@ function Cards() {
         axiosBurger();
         setInterval(axiosBurger, 30 * 60 * 1000) // 30 minutos * 60 segundos * 1000 milisegundos. A cada 30 minutos dispara o intervalo para atualização
     }, [])
-
     return (
         <>
             <h2 className={`${font_family} text-2xl my-4`}>SANDUÍCHES</h2>
             <section id='sanduiches' className='flex flex-wrap items-center justify-center'>
-
 
                 {
                     burger.map(burgerItem => (
@@ -138,6 +147,7 @@ function Cards() {
                             item1={burgerItem.item1}
                             item2={burgerItem.item2}
                             item3={burgerItem.item3}
+                            setCart={setCart} // Chamando o setCart para atualizar o valor no estado
                         />
                     )
                     )
@@ -147,17 +157,17 @@ function Cards() {
             <h2 className={`${font_family} text-2xl my-4`}>BEBIDAS</h2>
             <section id='bebidas' className='flex flex-wrap items-center justify-center'>
                 {
-                    drink.map(drinkItem => 
-                <BebidaCard
-                    key={drinkItem.id}
-                    id={drinkItem.id}
-                    title={drinkItem.title}
-                    image={drinkItem.image}
-                    price={drinkItem.price}
-                    text_description={drinkItem.text_description}
-                    item1={drinkItem.item1}
-                    item2={drinkItem.item2}
-                />)
+                    drink.map(drinkItem =>
+                        <BebidaCard
+                            key={drinkItem.id}
+                            id={drinkItem.id}
+                            title={drinkItem.title}
+                            image={drinkItem.image}
+                            price={drinkItem.price}
+                            text_description={drinkItem.text_description}
+                            item1={drinkItem.item1}
+                            item2={drinkItem.item2}
+                        />)
                 }
             </section>
         </>
