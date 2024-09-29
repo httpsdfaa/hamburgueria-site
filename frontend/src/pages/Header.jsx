@@ -34,9 +34,6 @@ function Header() {
 
     const openCart = () => {
         navigate('/carrinho')
-        
-        // Desativa barra de rolagem e focar no carrinho
-        document.body.style.overflow = 'hidden';
     }
 
     return (
