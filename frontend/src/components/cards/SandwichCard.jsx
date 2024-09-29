@@ -21,17 +21,20 @@ function SandwichCard({
     item5 = null,
     item6 = null,
     item7 = null,
-    setCart, // props para armazenar o valor do id
+    setId, // props para armazenar o valor do id atual
+    setTitle, // props para armazenar o valor do Title atual
+    setPrice // props para armazenar o valor do Price atual
 }) {
     const addProductClick = () => {
-        setCart(prevCart => [...prevCart, id])
+        setId(prevId => [...prevId, id])
+        setTitle(prevTitle => [...prevTitle, title])
+        setPrice(prevPrice => [...prevPrice, price])
     }
 
     return (
         <Card style={{ width: '18rem' }} className={`${marginPrincipal} ${minWidth} ${maxWidth}`}>
             <Card.Img variant="top" src={image} />
             <Card.Body>
-                <span>{id}</span>
                 <div className="text-avermelhadoTittle font-yaLike">
                     <Card.Title>{title}</Card.Title>
                 </div>
