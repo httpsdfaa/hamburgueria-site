@@ -3,7 +3,7 @@ import React from "react";
 import "../styles/Body.css"
 // import PhotoBurger from '../assets/sanduiche.png'
 import CarouselSlide from "../components/Carousel";
-import Cards from '../components/Cards';
+import Cards from '../components/cards/Cards';
 
 function Body() {
     return (
