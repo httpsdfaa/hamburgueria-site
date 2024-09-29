@@ -1,56 +1,4 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import Button from 'react-bootstrap/Button';
-
-import '../styles/Cart.css';
-
-const Cart = () => {
-
-    const PRODUTOSDEV = [
-        { id: 100, title: 'NOME_SANDUICHE A', price: `R$${0.50}`, text_description: 'Descrição completa sobre o sancuíche', image: 'https://raw.githubusercontent.com/httpsdfaa/hamburgueria-site/main/assets/sanduiche.png', item1: 'Item 1', item2: 'item 2', item3: 'Item N', item4: '', item5: '', item6: '', item7: '' },
-        { id: 101, title: 'NOME_SANDUICHE B', price: `R$${0.50}`, text_description: 'Descrição completa sobre o sancuíche', image: 'https://raw.githubusercontent.com/httpsdfaa/hamburgueria-site/main/assets/sanduiche.png', item1: 'Item 1', item2: 'item 2', item3: 'Item N', item4: '', item5: '', item6: '', item7: '' },
-        { id: 102, title: 'NOME_SANDUICHE C', price: `R$${0.50}`, text_description: 'Descrição completa sobre o sancuíche', image: 'https://raw.githubusercontent.com/httpsdfaa/hamburgueria-site/main/assets/sanduiche.png', item1: 'Item 1', item2: 'item 2', item3: 'Item N', item4: '', item5: '', item6: '', item7: '' }
-    ]
-
-    const [productsCart, setProductsCart] = useState([]);
-
-    return (
-        <section className="section-cart flex flex-col h-full w-full z-30 bg-defaultBody" id="section-cart">
-            <h1 className='font-yaLike text-defaultBlack'>Meu pedido</h1>
-
-            {/* Checando se o array está vazio */}
-            {productsCart.length === 0 ? <NotProduct />
-                : null
-            }
-
-        </section>
-    );
-}
-
-export default Cart;
-
-// Componentes dos Cart para ficar mais organizado pois existirá bastante código
-const NotProduct = () => {
-    return (
-        <>
-            <div className="not-product">
-                <h4 className='font-yaLike text-defaultBlack'>Nenhum produto!</h4>
-                <Link to='/'>Voltar para o início</Link>
-            </div>
-        </>
-    )
-}
-
-const UpdateProduct = () => {
-    return (
-        <>
-            <div className="update-product">
-                <span className='mx-2'>Adicione mais produtos</span>
-                <Button className="mx-2" variant='primary' size='sm'> + produtos</Button>
-            </div>
-        </>
-    )
-}
+import React from "react";
 
 const DataUser = () => {
 
@@ -106,12 +54,4 @@ const DataUser = () => {
     )
 }
 
-const ProductControl = () => {
-    return (
-        <>
-            <section className="product-control">
-                Controle de produto
-            </section>
-        </>
-    )
-}
+export default DataUser;

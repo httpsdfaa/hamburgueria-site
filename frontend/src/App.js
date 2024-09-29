@@ -12,7 +12,7 @@ import Background from './pages/Background';
 import Body from './pages/Body';
 import Footer from './pages/Footer';
 import Info from './components/Info';
-import Cart from './components/Cart';
+import Cart from './components/cart/Cart';
 
 // definindo rotas
 const router = createBrowserRouter([
