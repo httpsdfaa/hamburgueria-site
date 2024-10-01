@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import Logo from "../assets/logo.png"
@@ -10,9 +10,11 @@ import '../styles/Header.css'
 
 
 function Header() {
+    const navigate = useNavigate();
 
     const [toggle, setToggle] = useState(true ? window.innerWidth > 600 : false);
-    const navigate = useNavigate();
+    const [isVisible, setIsVisible] = useState(false);
+
 
     // width maior 600 redenrizar navbar
     window.addEventListener('resize', () => {
@@ -36,12 +38,24 @@ function Header() {
         navigate('/carrinho')
     }
 
+    const handleScroll = () => {
+        const eixoY = window.scrollY
+        
+        eixoY >= 210 ? setIsVisible(true) : setIsVisible(false)
+    }
+
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+        return () => { window.addEventListener("scroll", handleScroll); }
+    })
+
     return (
-        <header className="header flex justify-between items-center bg-marromAvermelhado h-20 w-full px-20">
+        <header style={{ position: isVisible ? 'fixed' : 'relative', zIndex: 1000 }} className={`header flex justify-between items-center bg-marromAvermelhado h-16 w-full px-20 ${isVisible ? 'visibleFixed': ''}`}>
 
             {/* Botão para navegar para a página carrinho */}
-            <button onClick={openCart} className="div-cart">
-                <CartIcon />
+            <button onClick={openCart} className="div-cart-icon">
+                <CartIcon className="icon-cart" />
+                <span className="index-cart">0</span>
             </button>
             <img className="img-logo rounded-full w-28 h-28 relative top-1/2 z-30" src={Logo} alt="logo"></img>
 

@@ -18,9 +18,7 @@ import Cards from './components/cards/Cards';
 function App() {
 
   // Estados para armazenar valores do Cards (Sandwich e Drinks)
-  const [id, setId] = useState([]) // id
-  const [title, setTitle] = useState([]) // title
-  const [price, setPrice] = useState([]) // price
+  const [products, setProducts] = useState([]) // products
 
   // definindo rotas
   const router = createBrowserRouter([
@@ -34,7 +32,7 @@ function App() {
             <Background />
             <Info />
             <Carousel />
-            <Cards setId={setId} setTitle={setTitle} setPrice={setPrice} /> {/* PUXANDO DADOS PARA PASSAR PARA CART*/}
+            <Cards setProducts={setProducts} /> {/* PUXANDO DADOS PARA PASSAR PARA CART*/}
           </main>
           <Footer />
         </>
@@ -45,7 +43,7 @@ function App() {
       element: (
         <>
           <Header />
-          <Cart id={id} title={title} price={price}/> {/* PEGANDO DADOS DE CARDS*/}
+          <Cart products={products} /> {/* PEGANDO DADOS DE CARDS*/}
         </>
       )
     }

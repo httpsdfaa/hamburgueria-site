@@ -2,7 +2,7 @@ import React from 'react';
 
 import '../../styles/Cart.css';
 
-const Cart = ({ id, title, price }) => {
+const Cart = ({ products }) => {
 
 
 
@@ -23,7 +23,7 @@ const Cart = ({ id, title, price }) => {
                 : null
             } */}
             <div>
-                <span>ID: {id} - {title} - {price}</span> 
+                <span>{products}</span> 
             </div>
         </section>
     );

@@ -4,6 +4,8 @@ import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import { CgAdd } from "react-icons/cg";
 
+import Button from '../../styles/Multi-styled'
+
 const marginPrincipal = 'm-12'
 const minWidth = 'min-w-96'
 const maxWidth = 'max-w-xl'
@@ -21,14 +23,13 @@ function SandwichCard({
     item5 = null,
     item6 = null,
     item7 = null,
-    setId, // props para armazenar o valor do id atual
-    setTitle, // props para armazenar o valor do Title atual
-    setPrice // props para armazenar o valor do Price atual
+    setProducts, // props para armazenar o valor do produto atual
 }) {
     const addProductClick = () => {
-        setId(prevId => [...prevId, id])
-        setTitle(prevTitle => [...prevTitle, title])
-        setPrice(prevPrice => [...prevPrice, price])
+        setProducts(prevProducts => [...prevProducts,
+            `ID: ${id} \n
+            Title: ${title} \n
+            Price: ${price}`])
     }
 
     return (
@@ -54,7 +55,7 @@ function SandwichCard({
             </ListGroup>
             <Card.Body>
                 <h4 className='text-avermelhadoTittle font-yaLike'>{price}</h4>
-                <CgAdd onClick={addProductClick} className='icons-cards' />
+                <Button><CgAdd onClick={addProductClick} className='icons-cards button-add' /></Button>
             </Card.Body>
         </Card>
     );

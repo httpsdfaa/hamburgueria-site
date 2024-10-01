@@ -4,12 +4,9 @@ import React, { useState, useEffect } from 'react';
 import SandwichCard from './SandwichCard';
 import DrinkCard from './DrinkCard';
 
-import '../../styles/Cards.css';
-
-
 const font_family = 'font-yaLike';
 
-function Cards({setId, setTitle, setPrice}) {
+function Cards({setProducts}) {
 
     const [burger, setBurger] = useState([]);
     const [drink, setDrink] = useState([]);
@@ -51,9 +48,7 @@ function Cards({setId, setTitle, setPrice}) {
                             item1={burgerItem.item1}
                             item2={burgerItem.item2}
                             item3={burgerItem.item3}
-                            setId={setId} // Chamando o setId para atualizar o valor no estado
-                            setTitle={setTitle} // Chamando o setTitle para atualizar o valor no estado
-                            setPrice={setPrice} // Chamando o setPrice para atualizar o valor no estado
+                            setProducts={setProducts} // Chamando o setId para atualizar o valor no estado
                         />
 
                     )
