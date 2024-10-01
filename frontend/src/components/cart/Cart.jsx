@@ -1,17 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+
+import CardsMin from '../cards/CardsMin'
 
 import '../../styles/Cart.css';
 
-const Cart = ({ products }) => {
+const Cart = ({ id, image, title, price }) => {
 
+    const [products, setProducts] = useState([])
 
+    useEffect(() => {
+        const addProduct = (id, image, title, price) => {
+            setProducts(prevProducts => [
+                ...prevProducts,
+                {
+                    id: id,
+                    image: image,
+                    title: title,
+                    price: price
+                }
+            ]);
+        }
 
-    const PRODUTOSDEV = [
-        { id: 100, title: 'NOME_SANDUICHE A', price: `R$${0.50}`, text_description: 'Descrição completa sobre o sancuíche', image: 'https://raw.githubusercontent.com/httpsdfaa/hamburgueria-site/main/assets/sanduiche.png', item1: 'Item 1', item2: 'item 2', item3: 'Item N', item4: '', item5: '', item6: '', item7: '' },
-        { id: 101, title: 'NOME_SANDUICHE B', price: `R$${0.50}`, text_description: 'Descrição completa sobre o sancuíche', image: 'https://raw.githubusercontent.com/httpsdfaa/hamburgueria-site/main/assets/sanduiche.png', item1: 'Item 1', item2: 'item 2', item3: 'Item N', item4: '', item5: '', item6: '', item7: '' },
-        { id: 102, title: 'NOME_SANDUICHE C', price: `R$${0.50}`, text_description: 'Descrição completa sobre o sancuíche', image: 'https://raw.githubusercontent.com/httpsdfaa/hamburgueria-site/main/assets/sanduiche.png', item1: 'Item 1', item2: 'item 2', item3: 'Item N', item4: '', item5: '', item6: '', item7: '' }
-    ]
-
+        addProduct(id, image, title, price)
+    }, id, image, title, price)
 
     return (
 
@@ -22,9 +33,13 @@ const Cart = ({ products }) => {
             {productsCart.length === 0 ? <NotProduct />
                 : null
             } */}
-            <div>
-                <span>{products}</span> 
-            </div>
+
+            {products.map(productItem => (
+                <CardsMin
+                    key={productItem.id}
+                    id={productItem.id}
+                />
+            ))}
         </section>
     );
 }

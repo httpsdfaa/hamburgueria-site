@@ -6,7 +6,7 @@ import DrinkCard from './DrinkCard';
 
 const font_family = 'font-yaLike';
 
-function Cards({setProducts}) {
+function Cards({ setId, setImage, setTitle, setPrice }) {
 
     const [burger, setBurger] = useState([]);
     const [drink, setDrink] = useState([]);
@@ -48,7 +48,10 @@ function Cards({setProducts}) {
                             item1={burgerItem.item1}
                             item2={burgerItem.item2}
                             item3={burgerItem.item3}
-                            setProducts={setProducts} // Chamando o setId para atualizar o valor no estado
+                            setId={setId} // Chamando o setId para atualizar o valor no estado
+                            setImage={setImage}
+                            setTitle={setTitle}
+                            setPrice={setPrice}
                         />
 
                     )
