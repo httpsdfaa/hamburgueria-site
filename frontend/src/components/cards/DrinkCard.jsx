@@ -4,6 +4,8 @@ import { CgAdd } from "react-icons/cg";
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 
+import Button from '../../styles/Multi-styled';
+
 const marginPrincipal = 'm-12'
 const minWidth = 'min-w-96'
 const maxWidth = 'max-w-xl'
@@ -44,7 +46,7 @@ function DrinkCard({
             </ListGroup>
             <Card.Body>
                 <h4 className='text-avermelhadoTittle font-yaLike'>{price}</h4>
-                <CgAdd className='icons-cards' />
+                <Button><CgAdd className='icons-cards button-add' /></Button>
             </Card.Body>
         </Card>
     );

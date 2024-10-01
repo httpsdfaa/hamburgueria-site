@@ -6,8 +6,8 @@ const CartIcon = () => (
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
     viewBox="0 0 459.529 459.529"
-    width='30px'
-    height='30px'
+    width='25px'
+    height='25px'
     fill='#F6F3E0'
     xmlSpace="preserve"
   >
