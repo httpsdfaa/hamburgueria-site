@@ -1,45 +1,4 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import Button from 'react-bootstrap/Button'
-
-import '../styles/Cart.css';
-
-const Cart = () => {
-    return (
-        <section className="section-cart flex flex-col h-full w-full z-30 bg-defaultBody" id="section-cart">
-            <h1 className='font-yaLike text-defaultBlack'>Meu pedido</h1>
-            <NotProduct />
-            <UpdateProduct />
-            <ProductControl />
-            <DataUser />
-        </section>
-    );
-}
-
-export default Cart;
-
-// Componentes dos Cart para ficar mais organizado pois existirá bastante código
-const NotProduct = () => {
-    return (
-        <>
-            <div className="not-product">
-                <h4 className='font-yaLike text-defaultBlack'>Nenhum produto!</h4>
-                <Link to='/'>Voltar para o início</Link>
-            </div>
-        </>
-    )
-}
-
-const UpdateProduct = () => {
-    return (
-        <>
-            <div className="update-product">
-                <span className='mx-2'>Adicione mais produtos</span>
-                <Button className="mx-2" variant='primary' size='sm'> + produtos</Button>
-            </div>
-        </>
-    )
-}
+import React from "react";
 
 const DataUser = () => {
 
@@ -66,10 +25,10 @@ const DataUser = () => {
                 </form>
                 <form className="delivey-method mb-8">
                     <h6>Selecione a forma de entrega</h6>
-                    <input type="radio" id='delivey' name='delivey' value='Entrega' checked={selectOption === 'Entrega'} onChange={handleChange}/>
+                    <input type="radio" id='delivey' name='delivey' value='Entrega' checked={selectOption === 'Entrega'} onChange={handleChange} />
                     <label htmlFor="delivey">Entrega</label>
-                    <br/><hr/>
-                    <input type="radio" id='pickup local' name='delivery' value='Retirada no local' checked={selectOption === 'Retirada no local'} onChange={handleChange}/>
+                    <br /><hr />
+                    <input type="radio" id='pickup local' name='delivery' value='Retirada no local' checked={selectOption === 'Retirada no local'} onChange={handleChange} />
                     <label htmlFor="local">Retirada no local</label>
                 </form>
                 <form action="/" className='pay-method'>
@@ -84,7 +43,7 @@ const DataUser = () => {
                 </form>
                 <form action="/">
                     <h6>Observações</h6>
-                    <input className="style-input style-focus" type="text"/>
+                    <input className="style-input style-focus" type="text" />
                 </form>
                 <div className="agree">
                     <input type="checkbox" name="private-check" id="private-check" />
@@ -95,12 +54,4 @@ const DataUser = () => {
     )
 }
 
-const ProductControl = () => {
-    return (
-        <>
-            <section className="product-control">
-                Controle de produto
-            </section>
-        </>
-    )
-}
+export default DataUser;
