@@ -16,7 +16,7 @@ function Cards({ setProducts }) {
         const axiosBurger = async () => {
             try {
                 // fazendo requisição
-                const response = await axios.get('http://localhost:3001/products')
+                const response = await axios.get('http://192.168.100.89:3001/products')
                 setBurger(response.data.sanduiches)
                 setDrink(response.data.bebidas)
             } catch (error) {
@@ -28,8 +28,13 @@ function Cards({ setProducts }) {
         }
 
         axiosBurger();
-        setInterval(axiosBurger, 30 * 60 * 1000) // 30 minutos * 60 segundos * 1000 milisegundos. A cada 30 minutos dispara o intervalo para atualização
-    }, [burger, drink])
+        // intervalo de atualização
+        const intervalId = setInterval(axiosBurger, 30 * 60 * 1000) // 30 minutos * 60 segundos * 1000 milisegundos. A cada 30 minutos dispara o intervalo para atualização
+    
+        // limpa o intervalo quando o componente for desmontado
+        return () => clearInterval(intervalId);
+
+    }, [])
 
     return (
         <>
