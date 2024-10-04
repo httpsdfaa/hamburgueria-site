@@ -23,16 +23,15 @@ function SandwichCard({
     item5 = null,
     item6 = null,
     item7 = null,
-    setId, // props para armazenar o valor do produto atual
-    setImage,
-    setTitle,
-    setPrice
+    setProducts // props para armazenar valores de produtos
 }) {
     const addProductClick = () => {
-        setId(prevId => [...prevId, id])
-        setImage(prevImage => [...prevImage, image])
-        setTitle(prevTitle => [...prevTitle, title])
-        setPrice(prevPrice => [...prevPrice, price])
+        setProducts(prevPrice => [ ...prevPrice, {
+            id: id,
+            image: image,
+            title: title,
+            price: price
+        }])
     }
 
     return (

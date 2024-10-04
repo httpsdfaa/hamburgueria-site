@@ -18,10 +18,8 @@ import Cards from './components/cards/Cards';
 function App() {
 
   // Estados para armazenar valores do Cards (Sandwich e Drinks)
-  const [id, setId] = useState([]) // id
-  const [title, setTitle] = useState([])
-  const [image, setImage] = useState([])
-  const [price, setPrice] = useState([])
+  const [products, setProducts] = useState([])
+
 
   // definindo rotas
   const router = createBrowserRouter([
@@ -30,12 +28,12 @@ function App() {
       path: '/',
       element: (
         <>
-          <Header />
+          <Header products={products}/>
           <main>
             <Background />
             <Info />
             <Carousel />
-            <Cards setId={setId} setTitle={setTitle} setImage={setImage} setPrice={setPrice}/> {/* PUXANDO DADOS PARA PASSAR PARA CART*/}
+            <Cards setProducts={setProducts}/> {/* PUXANDO DADOS PARA PASSAR PARA CART*/}
           </main>
           <Footer />
         </>
@@ -45,8 +43,8 @@ function App() {
       path: '/carrinho',
       element: (
         <>
-          <Header />
-          <Cart id={id} title={title} image={image} price={price} /> {/* PEGANDO DADOS DE CARDS*/}
+          <Header products={products}/>
+          <Cart products={products}/> {/* PEGANDO DADOS DE CARDS*/}
         </>
       )
     }

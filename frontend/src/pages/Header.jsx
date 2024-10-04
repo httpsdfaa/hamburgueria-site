@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import Logo from "../assets/logo.png"
@@ -9,12 +9,13 @@ import CartIcon from "../assets/icons/CartIcon";
 import '../styles/Header.css'
 
 
-function Header() {
+function Header({products}) {
+
     const navigate = useNavigate();
 
     const [toggle, setToggle] = useState(true ? window.innerWidth > 600 : false);
+    const [countProduct, setCountProduct] = useState()
     const [isVisible, setIsVisible] = useState(false);
-
 
     // width maior 600 redenrizar navbar
     window.addEventListener('resize', () => {
@@ -46,16 +47,18 @@ function Header() {
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
+        // contagem de produtos
+        setCountProduct(products.length);
         return () => { window.addEventListener("scroll", handleScroll); }
-    })
+    }, [products, setCountProduct])
 
     return (
-        <header style={{ position: isVisible ? 'fixed' : 'relative', zIndex: 1000 }} className={`header flex justify-between items-center bg-marromAvermelhado h-16 w-full px-20 ${isVisible ? 'visibleFixed': ''}`}>
+        <header style={{ position: isVisible ? 'fixed' : 'relative', zIndex: 1000 }} className={`${isVisible ? 'visibleFixed' : null} header flex justify-between items-center bg-marromAvermelhado h-16 w-full px-20`}>
 
             {/* Botão para navegar para a página carrinho */}
             <button onClick={openCart} className="div-cart-icon">
                 <CartIcon className="icon-cart" />
-                <span className="index-cart">0</span>
+                <span className="index-cart">{countProduct}</span>
             </button>
             <img className="img-logo rounded-full w-28 h-28 relative top-1/2 z-30" src={Logo} alt="logo"></img>
 

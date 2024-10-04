@@ -7,7 +7,7 @@ const CardsMin = ({ id, title, image, price }) => {
         <Section>
             <img src={image} alt="products" />
             <span>{id}</span>
-            <h1>{title}</h1>
+            <h2>{title}</h2>
             <form action="/">
                 <input type="number" min="1" name="number" id="number" />
             </form>

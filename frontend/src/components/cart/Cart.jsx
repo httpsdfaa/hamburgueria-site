@@ -1,45 +1,35 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
-import CardsMin from '../cards/CardsMin'
+import CardsMin from '../cards/CardsMin';
+import NotProduct from '../cart/NotProduct'
 
 import '../../styles/Cart.css';
 
-const Cart = ({ id, image, title, price }) => {
-
-    const [products, setProducts] = useState([])
-
-    useEffect(() => {
-        const addProduct = (id, image, title, price) => {
-            setProducts(prevProducts => [
-                ...prevProducts,
-                {
-                    id: id,
-                    image: image,
-                    title: title,
-                    price: price
-                }
-            ]);
-        }
-
-        addProduct(id, image, title, price)
-    }, id, image, title, price)
+const Cart = ({ products }) => {
 
     return (
 
         <section className="section-cart flex flex-col h-full w-full z-30 bg-defaultBody" id="section-cart">
             <h1 className='font-yaLike text-defaultBlack'>Meu pedido</h1>
+            
 
-            {/* Checando se o array está vazio
-            {productsCart.length === 0 ? <NotProduct />
-                : null
-            } */}
+            {
+                products.length === 0 ? <NotProduct />
 
-            {products.map(productItem => (
-                <CardsMin
-                    key={productItem.id}
-                    id={productItem.id}
-                />
-            ))}
+                :
+
+                products.map(productItem => (
+                    <CardsMin
+                        key={productItem.id}
+                        id={productItem.id}
+                        title={productItem.title}
+                        price={productItem.price}
+                        image={productItem.image}
+
+                    />
+                ))
+            }
+
         </section>
     );
 }

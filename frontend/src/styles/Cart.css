@@ -1,5 +1,6 @@
 .section-cart {
     overflow: auto;
+    height: 100vh;
 }
 
 .data-user, div.update-product {

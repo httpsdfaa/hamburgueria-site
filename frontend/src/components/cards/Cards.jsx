@@ -6,10 +6,11 @@ import DrinkCard from './DrinkCard';
 
 const font_family = 'font-yaLike';
 
-function Cards({ setId, setImage, setTitle, setPrice }) {
+function Cards({ setProducts }) {
 
     const [burger, setBurger] = useState([]);
     const [drink, setDrink] = useState([]);
+
 
     useEffect(() => {
         const axiosBurger = async () => {
@@ -28,7 +29,7 @@ function Cards({ setId, setImage, setTitle, setPrice }) {
 
         axiosBurger();
         setInterval(axiosBurger, 30 * 60 * 1000) // 30 minutos * 60 segundos * 1000 milisegundos. A cada 30 minutos dispara o intervalo para atualização
-    }, [])
+    }, [burger, drink])
 
     return (
         <>
@@ -48,10 +49,7 @@ function Cards({ setId, setImage, setTitle, setPrice }) {
                             item1={burgerItem.item1}
                             item2={burgerItem.item2}
                             item3={burgerItem.item3}
-                            setId={setId} // Chamando o setId para atualizar o valor no estado
-                            setImage={setImage}
-                            setTitle={setTitle}
-                            setPrice={setPrice}
+                            setProducts={setProducts} // Coletando array de produtos
                         />
 
                     )
