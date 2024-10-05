@@ -7,6 +7,8 @@ import '../../styles/Cart.css';
 
 const Cart = ({ products }) => {
 
+    console.log(products)
+
     return (
 
         <>
@@ -22,14 +24,15 @@ const Cart = ({ products }) => {
                             <>
                                 {
                                     products.map(productItem => (
-                                        <div className="products" key={productItem.id} >
-                                            <CardsMin
-                                                id={productItem.id}
-                                                title={productItem.title}
-                                                price={productItem.price}
-                                                image={productItem.image}
-                                            />
-                                        </div>
+                                         productItem.id !== null ?
+                                            <div className="products" key={productItem.id} >
+                                                <CardsMin
+                                                    id={productItem.id}
+                                                    title={productItem.title}
+                                                    price={productItem.price}
+                                                    image={productItem.image}
+                                                />
+                                            </div> : null
 
                                     ))
                                 }

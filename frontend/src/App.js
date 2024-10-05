@@ -14,12 +14,12 @@ import Footer from './pages/Footer';
 import Info from './components/Info';
 import Cart from './components/cart/Cart';
 import Cards from './components/cards/Cards';
+import CardsMin from './components/cards/CardsMin';
 
 function App() {
 
   // Estados para armazenar valores do Cards (Sandwich e Drinks)
   const [products, setProducts] = useState([])
-
 
   // definindo rotas
   const router = createBrowserRouter([
@@ -28,12 +28,12 @@ function App() {
       path: '/',
       element: (
         <>
-          <Header products={products}/>
+          <Header products={products} />
           <main>
             <Background />
             <Info />
             <Carousel />
-            <Cards setProducts={setProducts}/> {/* PUXANDO DADOS PARA PASSAR PARA CART*/}
+            <Cards setProducts={setProducts} /> {/* PUXANDO DADOS PARA PASSAR PARA CART*/}
           </main>
           <Footer />
         </>
@@ -43,8 +43,10 @@ function App() {
       path: '/carrinho',
       element: (
         <>
-          <Header products={products}/>
-          <Cart products={products}/> {/* PEGANDO DADOS DE CARDS*/}
+          <Header products={products} />
+          <Cart products={products}>
+            <CardsMin />
+          </Cart> {/* PEGANDO DADOS DE CARDS*/}
         </>
       )
     }
