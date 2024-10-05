@@ -1,8 +1,10 @@
 .section-cart {
-    display: flex;
-    justify-content: center;
-    overflow: auto;
-    height: 100vh;
+    margin: 40px 0 0 5px;
+}
+
+.section-cart > h1 {
+    text-align: left;
+    margin: 5px;
 }
 
 .notProduct {

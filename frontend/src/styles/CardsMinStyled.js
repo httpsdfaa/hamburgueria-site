@@ -23,6 +23,10 @@ const Section = styled.section`
         color: #cb2929;
     }
 
+    .icon-trash:active {
+        transform: scale(0.8)
+    }
+
     .price {
         font-size: 20px;
     }
