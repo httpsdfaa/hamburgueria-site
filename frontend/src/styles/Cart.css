@@ -1,5 +1,14 @@
 .section-cart {
+    display: flex;
+    justify-content: center;
     overflow: auto;
+    height: 100vh;
+}
+
+.notProduct {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100vh;
 }
 

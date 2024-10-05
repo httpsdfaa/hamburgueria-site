@@ -10,7 +10,31 @@ const Section = styled.section`
     margin: 20px;
     border-radius: 20px;
     padding: 20px;
+    gap: 10px;
 
+    @media (max-width: 690px){
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .icon-trash {
+        width: 20px !important;
+        height: 20px;
+        color: #cb2929;
+    }
+
+    .price {
+        font-size: 20px;
+    }
+
+    input#number {
+        width: 55px;
+        height: 45px;
+        background: rgb(241, 241, 241);
+        border-radius: 5px;
+        padding: 8px;
+        border: solid 1px rgb(0, 0, 0, 0.1);
+    }
 
     & > img {
         border-radius: 100%;

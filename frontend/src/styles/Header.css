@@ -33,7 +33,7 @@ a {
         padding: 0 50px !important;
         animation: animeHeader 0.5s ease-in-out;
     }
-
+/* 
     @keyframes animeHeader {
         0% {
             transform: translateY(-50px);
@@ -45,7 +45,7 @@ a {
             transform: translateY(0);
             opacity: 1;
         }
-    }
+    } */
 
     header.visibleFixed {
         animation: animeHeaderTwo 0.5s ease-in-out;

@@ -9,28 +9,33 @@ const Cart = ({ products }) => {
 
     return (
 
-        <section className="section-cart flex flex-col h-full w-full z-30 bg-defaultBody" id="section-cart">
-            <h1 className='font-yaLike text-defaultBlack'>Meu pedido</h1>
-            
+        <>
 
-            {
-                products.length === 0 ? <NotProduct />
+            <div className="notProduct">
+                {
+                    products.length === 0 ? <NotProduct />
 
-                :
+                        :
 
-                products.map(productItem => (
-                    <CardsMin
-                        key={productItem.id}
-                        id={productItem.id}
-                        title={productItem.title}
-                        price={productItem.price}
-                        image={productItem.image}
+                        <section className="section-cart flex flex-col h-full w-full z-30 bg-defaultBody" id="section-cart">
+                            <h1>titleree</h1>
+                            {
+                                products.map(productItem => (
+                                    <div className="products" key={productItem.id} >
+                                        <CardsMin 
+                                            title={productItem.title}
+                                            price={productItem.price}
+                                            image={productItem.image}
+                                        />
+                                    </div>
 
-                    />
-                ))
-            }
+                                ))
+                            }
 
-        </section>
+                        </section>
+                }
+            </div>
+        </>
     );
 }
 
