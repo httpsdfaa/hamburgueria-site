@@ -12,6 +12,24 @@ const Section = styled.section`
     padding: 20px;
     gap: 10px;
 
+
+    & > form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    & > form > label,
+    & > form > input,
+    & > form > button {
+        margin: 5px;
+        border-radius: 5px;
+    }
+
+    & > form > button {
+        background: #303030;
+    }
+
     @media (max-width: 690px){
         flex-direction: column;
         gap: 30px;
@@ -23,7 +41,7 @@ const Section = styled.section`
         color: #cb2929;
     }
 
-    .icon-trash:active {
+    .icon-trash:active, & > form > button:active {
         transform: scale(0.8)
     }
 
