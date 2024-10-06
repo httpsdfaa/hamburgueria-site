@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+
 // configuração de rota
 import {
   createBrowserRouter,
@@ -19,7 +20,9 @@ import CardsMin from './components/cards/CardsMin';
 function App() {
 
   // Estados para armazenar valores do Cards (Sandwich e Drinks)
-  const [products, setProducts] = useState([])
+  const [products, setProducts] = useState([]);
+
+  console.log('APPJS: ', products)
 
   // definindo rotas
   const router = createBrowserRouter([
@@ -44,9 +47,7 @@ function App() {
       element: (
         <>
           <Header products={products} />
-          <Cart products={products}>
-            <CardsMin />
-          </Cart> {/* PEGANDO DADOS DE CARDS*/}
+          <Cart products={products} setProducts={setProducts}/> {/* PEGANDO DADOS DE CARDS*/}
         </>
       )
     }

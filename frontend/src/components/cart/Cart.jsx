@@ -1,13 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import CardsMin from '../cards/CardsMin';
 import NotProduct from '../cart/NotProduct'
 
 import '../../styles/Cart.css';
 
-const Cart = ({ products }) => {
+const Cart = ({ products, setProducts}) => {
 
-    console.log(products)
+    const [countID, setCountID] = useState(1)
+
+    console.log('Compontente CART: ', products)
+
+    const removeProduct = (id) => {
+        setProducts(prevProd => prevProd.filter(product => product.id !== id)); // quando clicado retornara falso e removerá
+    }
+
+
+    // for(let i in products) {
+    //     products[i].id === products[i].id ? setCountID(i++) : setCountID(1) 
+    // } 
 
     return (
 
@@ -26,11 +37,12 @@ const Cart = ({ products }) => {
                                     products.map(productItem => (
                                          productItem.id !== null ?
                                             <div className="products" key={productItem.id} >
-                                                <CardsMin
+                                                <CardsMin 
                                                     id={productItem.id}
                                                     title={productItem.title}
-                                                    price={productItem.price}
                                                     image={productItem.image}
+                                                    price={productItem.price}
+                                                    removeProduct={removeProduct}
                                                 />
                                             </div> : null
 

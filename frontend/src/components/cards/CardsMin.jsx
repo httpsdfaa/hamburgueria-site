@@ -4,10 +4,12 @@ import { IoIosArrowForward } from "react-icons/io";
 
 import Section from '../../styles/CardsMinStyled';
 
-const CardsMin = ({ id, title, image, price }) => {
+const CardsMin = ({ id, title, image, price, removeProduct}) => {
 
     const [productQnt, setProductQtd] = useState(1);
     const [products, setProducts] = useState({});
+
+    console.log(products)
 
     useEffect(() => {
         setProducts({
@@ -17,9 +19,6 @@ const CardsMin = ({ id, title, image, price }) => {
             price: price
         })
     }, [setProducts])
-
-
-    console.log(products)
 
     // Alteração formulário
     const onchange = (e) => {
@@ -44,7 +43,7 @@ const CardsMin = ({ id, title, image, price }) => {
                 <input type="number" min="1" name="number" id="number" value={productQnt} onChange={onchange} />
                 <button>< IoIosArrowForward style={{ color: 'white', width: '20px', height: '20px' }} /></button>
             </form>
-            <button id={id}><  FaRegTrashAlt className="icon-trash" /></button>
+            <button id={id} onClick={() => removeProduct(id)}><  FaRegTrashAlt className="icon-trash" /></button>
         </Section>
     )
 }
