@@ -7,15 +7,7 @@ import '../../styles/Cart.css';
 
 const Cart = ({ products, setProducts}) => {
 
-    const [productsEqual, setProductsEqual] = useState([]);
-
-    useEffect(() => {
-        setProductsEqual(products);
-    }, [setProductsEqual, products])
     
-
-    console.log('Compontente CART: ', products)
-    console.log('Compontente CART IGUAL: ', productsEqual)
 
     // remoção de produtos ao clicar em lixo
     const removeProduct = (id) => {

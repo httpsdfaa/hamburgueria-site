@@ -23,16 +23,18 @@ function SandwichCard({
     item5 = null,
     item6 = null,
     item7 = null,
-    setProducts // props para armazenar valores de produtos
+    setProducts, // props para armazenar valores de produtos
 }) {
     const addProductClick = () => {
-        setProducts(prevPrice => [ ...prevPrice, {
+        setProducts(prevProducts => [...prevProducts, {
             id: id,
-            image: image,
             title: title,
-            price: price
+            image: image,
+            price: price,
+            qtd: 1
         }])
     }
+
 
     return (
         <Card style={{ width: '18rem' }} className={`${marginPrincipal} ${minWidth} ${maxWidth}`}>
