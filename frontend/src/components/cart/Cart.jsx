@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import CardsMin from '../cards/CardsMin';
 import NotProduct from '../cart/NotProduct'
@@ -7,18 +7,20 @@ import '../../styles/Cart.css';
 
 const Cart = ({ products, setProducts}) => {
 
-    const [countID, setCountID] = useState(1)
+    const [productsEqual, setProductsEqual] = useState([]);
+
+    useEffect(() => {
+        setProductsEqual(products);
+    }, [setProductsEqual, products])
+    
 
     console.log('Compontente CART: ', products)
+    console.log('Compontente CART IGUAL: ', productsEqual)
 
+    // remoção de produtos ao clicar em lixo
     const removeProduct = (id) => {
         setProducts(prevProd => prevProd.filter(product => product.id !== id)); // quando clicado retornara falso e removerá
     }
-
-
-    // for(let i in products) {
-    //     products[i].id === products[i].id ? setCountID(i++) : setCountID(1) 
-    // } 
 
     return (
 

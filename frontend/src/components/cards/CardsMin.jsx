@@ -9,8 +9,6 @@ const CardsMin = ({ id, title, image, price, removeProduct}) => {
     const [productQnt, setProductQtd] = useState(1);
     const [products, setProducts] = useState({});
 
-    console.log(products)
-
     useEffect(() => {
         setProducts({
             id: id,
