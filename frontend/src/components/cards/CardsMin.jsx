@@ -9,16 +9,23 @@ const CardsMin = ({ id, title, image, price, removeProduct }) => {
     const [productQnt, setProductQtd] = useState(1);
     const [products, setProducts] = useState([]);
 
-    console.log('CARDSMIN: ', products)
-
+    let storageCart = 0
     useEffect(() => {
+        storageCart = localStorage.getItem('cart')
+
+        storageCart = JSON.parse(storageCart)
+        console.log(storageCart)
+
         setProducts([{
-            id: id,
-            title: title,
-            image: image,
-            price: price
+            // id: storageCart.id,
+            // title: storageCart.title,
+            // image: storageCart.image,
+            // price: storageCart.price
+
+            storageCart
         }])
-    }, [setProducts])
+
+    }, [setProducts, id, storageCart])
 
     // Alteração formulário
     const onchange = (e) => {
@@ -36,7 +43,7 @@ const CardsMin = ({ id, title, image, price, removeProduct }) => {
     return (
         <Section>
             {
-                products.map(productItem =>
+                storageCart.map(productItem =>
                     <>
                         < img src={productItem.image} alt="products" />
                         <h2 className="font-yaLike">{productItem.title}</h2>

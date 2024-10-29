@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 
 // configuração de rota
@@ -20,7 +20,18 @@ import CardsMin from './components/cards/CardsMin';
 function App() {
 
   // Estados para armazenar valores do Cards (Sandwich e Drinks)
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState(() => {
+    // Carregar o carrinho do localStorage ao inicializar o estado
+    const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
+    return savedCart;
+  });
+
+
+  // Adiciona os produtos no localstorage web para utilizar em outros componentes
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(products))
+  }, [products])
+
 
   console.log('APPJS: ', products)
 
@@ -47,7 +58,7 @@ function App() {
       element: (
         <>
           <Header products={products} />
-          <Cart products={products} setProducts={setProducts}/> {/* PEGANDO DADOS DE CARDS*/}
+          <Cart products={products} setProducts={setProducts} /> {/* PEGANDO DADOS DE CARDS*/}
         </>
       )
     }
