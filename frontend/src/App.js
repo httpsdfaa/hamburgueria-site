@@ -23,12 +23,7 @@ function App() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {// LOCAL STORAGE
-    const storages = JSON.parse(localStorage.getItem('cart')) || []
-
-    if (products.length > 0) {
-      const updateProducts = [...storages, products]
-      localStorage.setItem('cart', JSON.stringify(updateProducts))
-    }
+    localStorage.setItem('cart', JSON.stringify(products))
   }, [products])
 
   console.log('APPJS: ', products)

@@ -24,6 +24,7 @@ function SandwichCard({
     item6 = null,
     item7 = null,
     setProducts, // props para armazenar valores de produtos
+    quantity
 }) {
     const addProductClick = () => {
         setProducts(prevProducts => [...prevProducts, {
@@ -31,7 +32,7 @@ function SandwichCard({
             title: title,
             image: image,
             price: price,
-            qtd: 1
+            quantity: quantity
         }])
     }
 

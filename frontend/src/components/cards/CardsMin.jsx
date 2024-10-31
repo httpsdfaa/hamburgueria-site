@@ -4,55 +4,44 @@ import { IoIosArrowForward } from "react-icons/io";
 
 import Section from '../../styles/CardsMinStyled';
 
-const CardsMin = ({ id, title, image, price, removeProduct }) => {
+const CardsMin = ({ id, title, image, price, quantity, removeProduct }) => {
 
+    const [changeQnt, setChangeQtd] = useState(1);
     const [productQnt, setProductQtd] = useState(1);
-    const [products, setProducts] = useState([]);
 
-    const storagesProducts = localStorage.getItem('cart');
-    console.log(storagesProducts)
+    // CALCULANDO VALOR BASEADO NA QUANTIDADE
+    const totalPrice = price * productQnt
 
-    // useEffect(() => {
-    //     setProducts([{
-    //         id: id,
-    //         title: title,
-    //         image: image,
-    //         price: price
-    //     }])
-
-    // }, [setProducts, id])
-
-    console.log(products)
+    console.log(quantity)
 
     // Alteração formulário
     const onchange = (e) => {
         e.preventDefault()
-        const value = e.target.value
-        setProductQtd(value)
+        setChangeQtd(e.target.value)
     }
 
     // quantidade pedido
     const onSubmit = (e) => {
         e.preventDefault()
-        console.log(productQnt)
+        setProductQtd(changeQnt) // Atualizando quantidade do produto
+        // quantity(changeQnt) // Atualizando quantidade função de cart
     }
 
     return (
         <Section>
-            {
-                products.map(productItem =>
-                    <>
-                        < img src={productItem.image} alt="products" />
-                        <h2 className="font-yaLike">{productItem.title}</h2>
-                        <span className="price">{productItem.price}</span>
-                        <form onSubmit={onSubmit}>
-                            <label htmlFor="number">Quantidade: </label>
-                            <input type="number" min="1" name="number" id="number" value={productQnt} onChange={onchange} />
-                            <button>< IoIosArrowForward style={{ color: 'white', width: '20px', height: '20px' }} /></button>
-                        </form>
-                        <button id={id} onClick={() => removeProduct(id)}><  FaRegTrashAlt className="icon-trash" /></button>
-                    </>)}
-        </Section>
+
+            <>
+                < img src={image} alt="products" />
+                <h2 className="font-yaLike">{title}</h2>
+                < span className="price">R$ {totalPrice}</span>
+                <form onSubmit={onSubmit}>
+                    <label htmlFor="number">Quantidade: {productQnt}</label>
+                    <input type="number" min="1" name="number" id="number" value={changeQnt} onChange={onchange} />
+                    <button>< IoIosArrowForward style={{ color: 'white', width: '20px', height: '20px' }} /></button>
+                </form>
+                <button id={id} onClick={() => removeProduct(id)}><  FaRegTrashAlt className="icon-trash" /></button>
+            </>
+        </Section >
     )
 }
 

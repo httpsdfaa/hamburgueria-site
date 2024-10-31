@@ -7,12 +7,16 @@ import '../../styles/Cart.css';
 
 const Cart = ({ products, setProducts}) => {
 
-    
+    const [productQnt, setProductQnt] = useState()
+
+    console.log(products)
 
     // remoção de produtos ao clicar em lixo
     const removeProduct = (id) => {
         setProducts(prevProd => prevProd.filter(product => product.id !== id)); // quando clicado retornara falso e removerá
     }
+
+    
 
     return (
 
@@ -37,6 +41,7 @@ const Cart = ({ products, setProducts}) => {
                                                     image={productItem.image}
                                                     price={productItem.price}
                                                     removeProduct={removeProduct}
+                                                    quantity={productItem.quantity}
                                                 />
                                             </div> : null
 
