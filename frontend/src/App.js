@@ -20,18 +20,16 @@ import CardsMin from './components/cards/CardsMin';
 function App() {
 
   // Estados para armazenar valores do Cards (Sandwich e Drinks)
-  const [products, setProducts] = useState(() => {
-    // Carregar o carrinho do localStorage ao inicializar o estado
-    const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
-    return savedCart;
-  });
+  const [products, setProducts] = useState([]);
 
+  useEffect(() => {// LOCAL STORAGE
+    const storages = JSON.parse(localStorage.getItem('cart')) || []
 
-  // Adiciona os produtos no localstorage web para utilizar em outros componentes
-  useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(products))
+    if (products.length > 0) {
+      const updateProducts = [...storages, products]
+      localStorage.setItem('cart', JSON.stringify(updateProducts))
+    }
   }, [products])
-
 
   console.log('APPJS: ', products)
 
