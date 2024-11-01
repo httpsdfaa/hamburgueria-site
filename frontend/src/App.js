@@ -13,7 +13,6 @@ import Background from './pages/Background';
 import Carousel from './components/Carousel';
 import Footer from './pages/Footer';
 import Info from './components/Info';
-import Cart from './components/cart/Cart';
 import Cards from './components/cards/Cards';
 import CardsMin from './components/cards/CardsMin';
 
@@ -51,7 +50,7 @@ function App() {
       element: (
         <>
           <Header products={products} />
-          <Cart products={products} setProducts={setProducts} /> {/* PEGANDO DADOS DE CARDS*/}
+          <CardsMin products={products} setProducts={setProducts}/> {/* PEGANDO DADOS DE CARDS*/}
         </>
       )
     }
