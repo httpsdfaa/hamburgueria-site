@@ -6,7 +6,7 @@ import DrinkCard from './DrinkCard';
 
 const font_family = 'font-yaLike';
 
-function Cards({ setProducts }) {
+function Cards({ setProducts, products }) {
 
     const [burger, setBurger] = useState([]);
     const [drink, setDrink] = useState([]);
@@ -55,6 +55,7 @@ function Cards({ setProducts }) {
                             item2={burgerItem.item2}
                             item3={burgerItem.item3}
                             setProducts={setProducts} // Coletando array de produtos
+                            products={products}
                         />
 
                     )

@@ -24,19 +24,46 @@ function SandwichCard({
     item6 = null,
     item7 = null,
     setProducts, // props para armazenar valores de produtos
+    products, // Recebe products como prop
     quantity = 1
 }) {
-    const addProductClick = () => {
+    // Função para consolidar os produtos
+    const getConsolidatedProducts = (products) => {
+        const counts = products.reduce((acc, item) => {
+            if (acc[item.id]) {
+                const totalQuantity = acc[item.id].quantity += item.quantity; // Incrementa a quantidade se já existir
 
-        setProducts(prevProducts => [...prevProducts, {
+                // Atualiza o preço total, usando centavos para evitar perda de precisão
+                acc[item.id].price = (acc[item.id].price || 0) + (item.price * item.quantity); // Guarda o valor em centavos
+
+                // Mostrando os valores em reais
+                acc[item.id].totalPriceReal = (acc[item.id].price / 100).toFixed(2);
+            } else {
+                acc[item.id] = { ...item }; // Adiciona produto com quantidade inicial
+            }
+            return acc;
+        }, {});
+        return Object.values(counts);
+    };
+
+    const addProductClick = () => {
+        // Adiciona o novo produto ao estado
+        const updatedProducts = [...products, {
             id: id,
             title: title,
             image: image,
             price: price,
             quantity: quantity
-        }])
-    }
+        }];
 
+        // Consolida os produtos após adicionar o novo item
+        const consolidatedProducts = getConsolidatedProducts(updatedProducts);
+
+        // Atualiza o estado `products` com a lista consolidada
+        setProducts(consolidatedProducts);
+    };
+
+    console.log('Sandwich', products)
 
     return (
         <Card style={{ width: '18rem' }} className={`${marginPrincipal} ${minWidth} ${maxWidth}`}>
@@ -60,7 +87,7 @@ function SandwichCard({
                 {item7 && <ListGroup.Item>{item7}</ListGroup.Item>}
             </ListGroup>
             <Card.Body>
-                <h4 className='text-avermelhadoTittle font-yaLike'>{price}</h4>
+                <h4 className='text-avermelhadoTittle font-yaLike'>{(price / 100).toFixed(2)}</h4>
                 <Button><CgAdd onClick={addProductClick} className='icons-cards button-add' /></Button>
             </Card.Body>
         </Card>

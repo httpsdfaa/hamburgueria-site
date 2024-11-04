@@ -39,7 +39,7 @@ function App() {
             <Background />
             <Info />
             <Carousel />
-            <Cards setProducts={setProducts} /> {/* PUXANDO DADOS PARA PASSAR PARA CART*/}
+            <Cards setProducts={setProducts} products={products}/> {/* PUXANDO DADOS PARA PASSAR PARA CART*/}
           </main>
           <Footer />
         </>
