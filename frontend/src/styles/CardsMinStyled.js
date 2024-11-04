@@ -49,7 +49,7 @@ const Section = styled.section`
         font-size: 20px;
     }
 
-    input#number {
+    input.number {
         width: 55px;
         height: 45px;
         background: rgb(241, 241, 241);

@@ -27,6 +27,7 @@ function SandwichCard({
     quantity = 1
 }) {
     const addProductClick = () => {
+
         setProducts(prevProducts => [...prevProducts, {
             id: id,
             title: title,

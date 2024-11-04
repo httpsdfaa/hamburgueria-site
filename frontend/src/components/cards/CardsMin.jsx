@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useId, useState } from "react";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { IoIosArrowForward } from "react-icons/io";
 import NotProduct from "../cart/NotProduct";
@@ -7,8 +7,7 @@ import Section from '../../styles/CardsMinStyled';
 
 const CardsMin = ({ setProducts, products }) => {
 
-    console.log('CARDS MIN:', products)
-
+    
 
     // Função para consolidar os produtos
     const getConsolidatedProducts = () => {
@@ -27,35 +26,16 @@ const CardsMin = ({ setProducts, products }) => {
     // Armazena os produtos consolidados para exibição
     const consolidatedProducts = getConsolidatedProducts();
 
-    // Função para atualizar quantidade
-    const handleQuantityChange = (e, id) => {
-        const newQuantity = parseInt(e.target.value, 10);
+    // Handle Change
+    const quantityInputId = useId();
+    const [quantity, setQuantity] = useState();
 
-        // Atualiza quantidade no estado `products`
-        setProducts(prevProducts =>
-            prevProducts.map(product =>
-                product.id === id ? { ...product, quantity: newQuantity } : product
-            )
-        );
-    };
-
+    console.log('CARDS MIN:', products)
 
     // remoção de produtos ao clicar no icone lixo
     const removeProduct = (id) => {
         setProducts(prevProd => prevProd.filter(product => product.id !== id)); // quando clicado retornara falso e removerá
     }
-
-    // // Alteração formulário
-    // const onchange = (e) => {
-    //     e.preventDefault()
-    //     setChangeQtd(e.target.value)
-    // }
-
-    // // quantidade pedido
-    // const onSubmit = (e) => {
-    //     e.preventDefault()
-    //     setProductQtd(changeQnt) // Atualizando quantidade do produto
-    // }
 
     return (
         <>
@@ -78,8 +58,11 @@ const CardsMin = ({ setProducts, products }) => {
                                                 < span className="price">R$ {product.price}</span>
                                                 <form onSubmit={(e) => e.preventDefault()}>
                                                     <label htmlFor="number">Quantidade: {product.quantity}</label>
-                                                    <input type="number" min="1" name="number" id="number" value={product.quantity} onChange={(e) => handleQuantityChange(e, product.id)} />
-                                                    <button>< IoIosArrowForward style={{ color: 'white', width: '20px', height: '20px' }} /></button>
+                                                    <input className="number" type="number" min="1" name="number" id={quantityInputId} onChange={e => setQuantity(e.target.value)}
+                                                    />
+                                                    <button
+                                                        onClick={(e) => product.quantity = quantity}
+                                                    >< IoIosArrowForward style={{ color: 'white', width: '20px', height: '20px' }} /></button>
                                                 </form>
                                                 <button id={product.id} onClick={() => removeProduct(product.id)}><  FaRegTrashAlt className="icon-trash" /></button>
                                             </Section > : null
