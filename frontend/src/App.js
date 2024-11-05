@@ -38,7 +38,6 @@ function App() {
           <main>
             <Background />
             <Info />
-            <Carousel />
             <Cards setProducts={setProducts} products={products}/> {/* PUXANDO DADOS PARA PASSAR PARA CART*/}
           </main>
           <Footer />

@@ -5,12 +5,14 @@ import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 
 import Button from '../../styles/Multi-styled';
+import getConsolidatedProducts from "../../utils/services";
 
 const marginPrincipal = 'm-12'
 const minWidth = 'min-w-96'
 const maxWidth = 'max-w-xl'
 
 function DrinkCard({
+    id,
     title,
     text_description,
     image,
@@ -21,8 +23,30 @@ function DrinkCard({
     item4 = null,
     item5 = null,
     item6 = null,
-    item7 = null
+    item7 = null,
+    setProducts, // props para armazenar valores de produto
+    products, // recebe products como prop
+    quantity = 1
 }) {
+
+    const addProductClick = () => {
+        //Adiciona o novo produto ao estado
+        const updatedProducts = [...products, {
+            id: id,
+            title: title,
+            image: image,
+            price: price,
+            quantity: quantity
+        }];
+
+
+        // Consolida os produtos após adicionar o novo item
+        const consolidatedProducts = getConsolidatedProducts(updatedProducts);
+
+        // Atualiza o estado products com a lista consolidada
+        setProducts(consolidatedProducts);
+    }
+
     return (
         <Card style={{ width: '18rem' }} className={`${marginPrincipal} ${minWidth} ${maxWidth}`}>
             <Card.Img variant="top" src={image} />
@@ -46,7 +70,7 @@ function DrinkCard({
             </ListGroup>
             <Card.Body>
                 <h4 className='text-avermelhadoTittle font-yaLike'>{price}</h4>
-                <Button><CgAdd className='icons-cards button-add' /></Button>
+                <Button><CgAdd onClick={addProductClick} className='icons-cards button-add' /></Button>
             </Card.Body>
         </Card>
     );

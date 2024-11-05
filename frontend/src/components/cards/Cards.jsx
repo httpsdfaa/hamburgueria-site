@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 
 import SandwichCard from './SandwichCard';
 import DrinkCard from './DrinkCard';
+import CarouselSlide from '../Carousel';
 
 const font_family = 'font-yaLike';
 
@@ -10,7 +11,7 @@ function Cards({ setProducts, products }) {
 
     const [burger, setBurger] = useState([]);
     const [drink, setDrink] = useState([]);
-
+    const [promotion, setPromotion] = useState([]);
 
     useEffect(() => {
         const axiosBurger = async () => {
@@ -19,6 +20,7 @@ function Cards({ setProducts, products }) {
                 const response = await axios.get('http://192.168.100.89:3001/products')
                 setBurger(response.data.sanduiches)
                 setDrink(response.data.bebidas)
+                setPromotion(response.data.promotions)
             } catch (error) {
                 console.error('Erro na requisição', error)
             } finally {
@@ -30,7 +32,7 @@ function Cards({ setProducts, products }) {
         axiosBurger();
         // intervalo de atualização
         const intervalId = setInterval(axiosBurger, 30 * 60 * 1000) // 30 minutos * 60 segundos * 1000 milisegundos. A cada 30 minutos dispara o intervalo para atualização
-    
+
         // limpa o intervalo quando o componente for desmontado
         return () => clearInterval(intervalId);
 
@@ -38,6 +40,14 @@ function Cards({ setProducts, products }) {
 
     return (
         <>
+            <hr className='mx-8' />
+            <h2 className='font-yaLike text-2xl my-4'>PROMOÇÕES</h2>
+            <section className="carousel">
+                <CarouselSlide
+                    setProducts={setProducts}
+                    products={promotion}
+                />
+            </section>
 
             <h2 className={`${font_family} text-2xl my-4`}>SANDUÍCHES</h2>
             <section id='sanduiches' className='flex flex-wrap items-center justify-center'>
@@ -76,6 +86,8 @@ function Cards({ setProducts, products }) {
                             text_description={drinkItem.text_description}
                             item1={drinkItem.item1}
                             item2={drinkItem.item2}
+                            setProducts={setProducts} // Coletando array de produtos
+                            products={products}
                         />)
                 }
             </section>

@@ -1,7 +1,9 @@
 import React, { useEffect, useId, useState } from "react";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { IoIosArrowForward } from "react-icons/io";
+
 import NotProduct from "../cart/NotProduct";
+import { errorMessages } from "../../utils/messages";
 
 import Section from '../../styles/CardsMinStyled';
 
@@ -16,6 +18,7 @@ const CardsMin = ({ setProducts, products }) => {
     const onclick = (e, product) => {
         e.preventDefault()
 
+        // Atualizando a quantidade ao modificar o input
         setProducts(prevProd => 
             prevProd.map(p =>
                 p.id === product.id ? {...p, 
@@ -39,8 +42,8 @@ const CardsMin = ({ setProducts, products }) => {
 
                     <>
 
-                        <section className="section-cart bg-defaultBody" id="section-cart">
-                            <h1 className='font-yaLike'>Meus pedidos</h1>
+                        <section className="section-cart bg-defaultBody h-screen" id="section-cart">
+                            <h1 className='font-yaLike mt-8 ml-8 text-left'>Meus pedidos</h1>
                             <>
                                 {
                                     products.map(product => (
@@ -48,10 +51,14 @@ const CardsMin = ({ setProducts, products }) => {
                                             <Section key={product.id}>
                                                 < img src={product.image} alt="products" />
                                                 <h2 className="font-yaLike">{product.title}</h2>
-                                                < span className="price">R$ {(product.price / 100).toFixed(2)}</span>
+                                                < span className="price">R$ {((product.price / 100) * product.quantity).toFixed(2)}</span>
                                                 <form onSubmit={(e) => e.preventDefault()}>
                                                     <label htmlFor="number">Quantidade: {product.quantity}</label>
-                                                    <input className="number" type="number" min="1" name="number" id={quantityInputId} onChange={e => setQuantityChange(e.target.value)}
+                                                    <input className="number" type="number" min="1" name="number" id={quantityInputId}
+                                                        onChange={e => 
+                                                            setQuantityChange(
+                                                                e.target.value <= 0 ? 1 : e.target.value
+                                                            )}
                                                     />
                                                     <button
                                                         onClick={(e) => onclick(e, product)}
