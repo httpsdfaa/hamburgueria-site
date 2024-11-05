@@ -3,6 +3,11 @@ import { FaRegTrashAlt } from "react-icons/fa";
 import { IoIosArrowForward } from "react-icons/io";
 
 import NotProduct from "../cart/NotProduct";
+import DataUser from "../cart/DataUser";
+import ProductControl from "../cart/ProductControl";
+import UpdateProduct from "../cart/UpdateProduct";
+
+
 import { errorMessages } from "../../utils/messages";
 
 import Section from '../../styles/CardsMinStyled';
@@ -29,7 +34,10 @@ const CardsMin = ({ setProducts, products }) => {
     }
 
     // remoção de produtos ao clicar no icone lixo
-    const removeProduct = (id) => {
+    const removeProduct = (id, title) => {
+        // Alertando sobre o produto removido
+        alert(title + ' removido!')
+
         setProducts(prevProd => prevProd.filter(product => product.id !== id)); // quando clicado retornara falso e removerá
     }
 
@@ -64,11 +72,12 @@ const CardsMin = ({ setProducts, products }) => {
                                                         onClick={(e) => onclick(e, product)}
                                                     >< IoIosArrowForward style={{ color: 'white', width: '20px', height: '20px' }} /></button>
                                                 </form>
-                                                <button id={product.id} onClick={() => removeProduct(product.id)}><  FaRegTrashAlt className="icon-trash" /></button>
+                                                <button id={product.id} onClick={() => removeProduct(product.id, product.title)}><  FaRegTrashAlt className="icon-trash" /></button>
                                             </Section > : null
 
                                     ))
                                 }
+                                <DataUser />
                             </>
 
                         </section>

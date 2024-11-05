@@ -7,7 +7,7 @@ import DrinkCard from './DrinkCard';
 import Carousel from 'react-bootstrap/Carousel';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from '../../styles/Multi-styled';
-import { CgAdd, CgOpenCollective } from "react-icons/cg";
+import { CgAdd } from "react-icons/cg";
 
 import getConsolidatedProducts from "../../utils/services";
 

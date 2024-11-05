@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import Logo from "../assets/logo.png"
 import MenuList from "../assets/icons/MenuList";
@@ -76,7 +76,7 @@ function Header({products}) {
             {
                 toggle ?
                     <nav className="navbar font-yaLike" style={{ display: !toggle ? 'none !important' : 'flex !important' }}>
-                        <a href="/" className="mr-5 text-titleNavManteiga">HOME</a>
+                        <Link to="/" className="mr-5 text-titleNavManteiga">HOME</Link>
                         <a href="#footer" className="ml-5 mr-5 text-titleNavManteiga">CONTATO</a>
                     </nav> : null
             }
