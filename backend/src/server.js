@@ -21,9 +21,14 @@ app.get('/', (req, res) => {
 
 app.get('/products', (req, res) => {
     const sanduiches_product = data.sanduiches
-    const bebidas_product= data.bebidas
+    const bebidas_product = data.bebidas
+    const promotion_product = data.promotions 
 
-    const products = { sanduiches: sanduiches_product, bebidas: bebidas_product }
+    const products = { 
+        sanduiches: sanduiches_product,
+        bebidas: bebidas_product,
+        promotions: promotion_product
+    }
 
     if(products){
         res.json(products)

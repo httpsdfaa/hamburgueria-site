@@ -1,3 +1,5 @@
+// OS PREÇOS ESTÃO EM CENTAVOS. BASTA PEGAR O PREÇO E DIVIDIR POR 100
+
 exports.sanduiches = [
     { id: 100, title: 'NOME_SANDUICHE A', price: 1050, text_description: 'Descrição completa sobre o sancuíche', image: 'https://raw.githubusercontent.com/httpsdfaa/hamburgueria-site/main/assets/sanduiche.png', item1: 'Item 1', item2: 'item 2', item3: 'Item N', item4: '', item5: '', item6: '', item7: '' },
     { id: 101, title: 'NOME_SANDUICHE B', price: 1050, text_description: 'Descrição completa sobre o sancuíche', image: 'https://raw.githubusercontent.com/httpsdfaa/hamburgueria-site/main/assets/sanduiche.png', item1: 'Item 1', item2: 'item 2', item3: 'Item N', item4: '', item5: '', item6: '', item7: '' },
@@ -10,11 +12,18 @@ exports.sanduiches = [
 ]
 
 exports.bebidas = [
-    { id: 200, title: 'Bebida A', price: 50, text_description: 'Descrição bebida', image: 'https://raw.githubusercontent.com/httpsdfaa/hamburgueria-site/main/assets/coca-cola.jpg', item1: '600 ml', item2: 'item 2', item3: 'Item N', item4: '', item5: '', item6: '', item7: '' },
-    { id: 201, title: 'Bebida B', price: 50, text_description: 'Descrição bebida', image: 'https://raw.githubusercontent.com/httpsdfaa/hamburgueria-site/main/assets/coca-cola.jpg', item1: '600 ml', item2: 'item 2', item3: 'Item N', item4: '', item5: '', item6: '', item7: '' },
-    { id: 202, title: 'Bebida C', price: 50, text_description: 'Descrição bebida', image: 'https://raw.githubusercontent.com/httpsdfaa/hamburgueria-site/main/assets/coca-cola.jpg', item1: '600 ml', item2: 'item 2', item3: 'Item N', item4: '', item5: '', item6: '', item7: '' },
-    { id: 203, title: 'Bebida D', price: 50, text_description: 'Descrição bebida', image: 'https://raw.githubusercontent.com/httpsdfaa/hamburgueria-site/main/assets/coca-cola.jpg', item1: '600 ml', item2: 'item 2', item3: 'Item N', item4: '', item5: '', item6: '', item7: '' },
-    { id: 204, title: 'Bebida E', price: 50, text_description: 'Descrição bebida', image: 'https://raw.githubusercontent.com/httpsdfaa/hamburgueria-site/main/assets/coca-cola.jpg', item1: '600 ml', item2: 'item 2', item3: 'Item N', item4: '', item5: '', item6: '', item7: '' },
-    { id: 205, title: 'Bebida F', price: 50, text_description: 'Descrição bebida', image: 'https://raw.githubusercontent.com/httpsdfaa/hamburgueria-site/main/assets/coca-cola.jpg', item1: '600 ml', item2: 'item 2', item3: 'Item N', item4: '', item5: '', item6: '', item7: '' },
-    { id: 206, title: 'Bebida G', price: 50, text_description: 'Descrição bebida', image: 'https://raw.githubusercontent.com/httpsdfaa/hamburgueria-site/main/assets/coca-cola.jpg', item1: '600 ml', item2: 'item 2', item3: 'Item N', item4: '', item5: '', item6: '', item7: '' },
+    { id: 200, title: 'Bebida A', price: 150, text_description: 'Descrição bebida', image: 'https://raw.githubusercontent.com/httpsdfaa/hamburgueria-site/main/assets/coca-cola.jpg', item1: '600 ml', item2: 'item 2', item3: 'Item N', item4: '', item5: '', item6: '', item7: '' },
+    { id: 201, title: 'Bebida B', price: 150, text_description: 'Descrição bebida', image: 'https://raw.githubusercontent.com/httpsdfaa/hamburgueria-site/main/assets/coca-cola.jpg', item1: '600 ml', item2: 'item 2', item3: 'Item N', item4: '', item5: '', item6: '', item7: '' },
+    { id: 202, title: 'Bebida C', price: 150, text_description: 'Descrição bebida', image: 'https://raw.githubusercontent.com/httpsdfaa/hamburgueria-site/main/assets/coca-cola.jpg', item1: '600 ml', item2: 'item 2', item3: 'Item N', item4: '', item5: '', item6: '', item7: '' },
+    { id: 203, title: 'Bebida D', price: 150, text_description: 'Descrição bebida', image: 'https://raw.githubusercontent.com/httpsdfaa/hamburgueria-site/main/assets/coca-cola.jpg', item1: '600 ml', item2: 'item 2', item3: 'Item N', item4: '', item5: '', item6: '', item7: '' },
+    { id: 204, title: 'Bebida E', price: 150, text_description: 'Descrição bebida', image: 'https://raw.githubusercontent.com/httpsdfaa/hamburgueria-site/main/assets/coca-cola.jpg', item1: '600 ml', item2: 'item 2', item3: 'Item N', item4: '', item5: '', item6: '', item7: '' },
+    { id: 205, title: 'Bebida F', price: 150, text_description: 'Descrição bebida', image: 'https://raw.githubusercontent.com/httpsdfaa/hamburgueria-site/main/assets/coca-cola.jpg', item1: '600 ml', item2: 'item 2', item3: 'Item N', item4: '', item5: '', item6: '', item7: '' },
+    { id: 206, title: 'Bebida G', price: 150, text_description: 'Descrição bebida', image: 'https://raw.githubusercontent.com/httpsdfaa/hamburgueria-site/main/assets/coca-cola.jpg', item1: '600 ml', item2: 'item 2', item3: 'Item N', item4: '', item5: '', item6: '', item7: '' },
+]
+
+exports.promotions = [
+    { id: 700, title: 'NOME_COMBO 1', price: 5000, text_description: 'Descrição completa sobre o sancuíche', image: 'https://raw.githubusercontent.com/httpsdfaa/hamburgueria-site/main/assets/sanduiche.png', item1: 'Item 1', item2: 'item 2', item3: 'Item N', item4: '', item5: '', item6: '', item7: '' },
+    { id: 701, title: 'NOME_COMBO 1', price: 5000, text_description: 'Descrição completa sobre o sancuíche', image: 'https://raw.githubusercontent.com/httpsdfaa/hamburgueria-site/main/assets/sanduiche.png', item1: 'Item 1', item2: 'item 2', item3: 'Item N', item4: '', item5: '', item6: '', item7: '' },
+    { id: 702, title: 'NOME_COMBO 1', price: 5000, text_description: 'Descrição completa sobre o sancuíche', image: 'https://raw.githubusercontent.com/httpsdfaa/hamburgueria-site/main/assets/sanduiche.png', item1: 'Item 1', item2: 'item 2', item3: 'Item N', item4: '', item5: '', item6: '', item7: '' },
+    { id: 703, title: 'NOME_COMBO 1', price: 5000, text_description: 'Descrição completa sobre o sancuíche', image: 'https://raw.githubusercontent.com/httpsdfaa/hamburgueria-site/main/assets/sanduiche.png', item1: 'Item 1', item2: 'item 2', item3: 'Item N', item4: '', item5: '', item6: '', item7: '' }
 ]
