@@ -69,7 +69,7 @@ function DrinkCard({
                 {item7 && <ListGroup.Item>{item7}</ListGroup.Item>}
             </ListGroup>
             <Card.Body>
-                <h4 className='text-avermelhadoTittle font-yaLike'>{price}</h4>
+                <h4 className='text-avermelhadoTittle font-yaLike'>{(price / 100).toFixed(2)}</h4>
                 <Button><CgAdd onClick={addProductClick} className='icons-cards button-add' /></Button>
             </Card.Body>
         </Card>

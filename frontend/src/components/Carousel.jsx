@@ -38,34 +38,59 @@ function CarouselSlide({
     color: 'border-[#E0E0E0]',
   }
 
+  const addProductClick = (id, title, price, image) => {
+    // Adiciona o novo produto ao estado
+    let updatedProducts = [...products, {
+      id: id,
+      title: title,
+      image: image,
+      price: price,
+      quantity: quantity
+    }]
+
+    console.log(products)
+
+    // // Consolida os produtos após adicionar o novo item
+    // const consolidatedProducts = getConsolidatedProducts(updatedProducts);
+
+    // // Atualiza o estado `products` com a lista consolidada
+    // setProducts(consolidatedProducts);
+  }
+
   return (
     <>
 
       <Carousel data-bs-theme="dark">
-        {
-          products.map(item =>
-            <Carousel.Item interval={1000} className='px-32' key={item.id}>
+        {/* {
+          products.map(item => */}
+            <Carousel.Item interval={1000} className='px-32' key={id}>
               <section className={`promotion ${color_gradient} ${border_24px} ${padding_top} carousel-item`}>
                 <img
                   className="img-promotion d-block w-80 rounded-full"
-                  src={item.image}
+                  // src={item.image}
                   alt="First slide"
                 />
-                <Carousel.Caption className={`caption pl-8 ${border_properties.thick_l} ${border_properties.color}`}>
-                  <h2 className={`${font_family} ${color_font}`}>{item.title}</h2>
+                <Carousel.Caption className={`caption pl-8 ${border_properties.thick_l} ${border_properties.color}`} key={id}>
+                  <h2 className={`${font_family} ${color_font}`}>{title}</h2>
                   <ol>
-                    {item.item1 && <li>{item.item1}</li>}
+                    {/* {item.item1 && <li>{item.item1}</li>}
                     {item.item2 && <li>{item.item2}</li>}
                     {item.item3 && <li>{item.item3}</li>}
-                    {item.item4 && <li>{item.item4}</li>}
+                    {item.item4 && <li>{item.item4}</li>} */}
                   </ol>
-                  <span className={`${font_price} ${font_family} ${color_font}`}>R$ {(item.price / 100).toFixed(2)}</span>
+                  <span className={`${font_price} ${font_family} ${color_font}`}>R$ {(price / 100).toFixed(2)}</span>
                   <br /><br />
-                  <Button><CgAdd className='icons-cards button-add' /></Button>
+                  {/* <Button><CgAdd onClick={() => 
+                    addProductClick(
+                      item.id,
+                      item.title,
+                      item.price,
+                      item.image)} 
+                    className='icons-cards button-add' /></Button> */}
                 </Carousel.Caption>
               </section>
             </Carousel.Item>
-          )}
+          {/* )} */}
       </Carousel>
       <hr className='mx-8' />
     </>
