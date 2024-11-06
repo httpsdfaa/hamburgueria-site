@@ -3,7 +3,7 @@ const { MercadoPagoConfig, Payment } = require('mercadopago');
 function mercadoPagoConfig(transaction_amount, description, payment_method_id, email) {
     // Inicializando o client
     const client = new MercadoPagoConfig({
-        accessToken: 'TEST-7826225987722017-110616-32d039a178487df23ae8366909888f9e-557330444',
+        accessToken: 'accessToken mercado pago',
         options: { timeout: 5000, idempotencyKey: 'abc' }
     });
 
