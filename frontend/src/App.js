@@ -15,6 +15,7 @@ import Footer from './pages/Footer';
 import Info from './components/Info';
 import Cards from './components/cards/Cards';
 import CardsMin from './components/cards/CardsMin';
+import Payment from './components/cart/Payment';
 
 function App() {
 
@@ -50,6 +51,14 @@ function App() {
         <>
           <Header products={products} />
           <CardsMin products={products} setProducts={setProducts}/> {/* PEGANDO DADOS DE CARDS*/}
+        </>
+      )
+    },
+    {
+      path: '/pagamento',
+      element: (
+        <>
+          <Payment />
         </>
       )
     }

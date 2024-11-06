@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
 const Section = styled.section `
+    
+    background: #fff;
+
     & > div.product,
     & > section.cartTotal > div.subtotal,
     & > section.cartTotal > div.service,
