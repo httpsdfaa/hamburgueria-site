@@ -38,7 +38,7 @@ app.get('/products', (req, res) => {
     }
 })
 
-mercadoPagoConfig(200, 'pagamento de teste 01', 'pix', 'deivisoncode@gmail.com')
+// mercadoPagoConfig(200, 'pagamento de teste 01', 'pix', 'deivisoncode@gmail.com')
 
 const PORT = process.env.PORT
 app.listen(PORT, () => {
