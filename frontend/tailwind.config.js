@@ -15,6 +15,7 @@ module.exports = {
       'buttomBlue': '#7274BB',
       'avermelhadoTittle': '#9F2E33',
       'defaultBlack': '#303030',
+      'blackOpacity': '#808080',
       'defaultBody': '#F1F1F1',
       'borderColor': '#E0E0E0'
     }

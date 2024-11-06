@@ -33,6 +33,7 @@ const SummaryProducts = ({ products }) => {
                 !paymentActive ?
                     <Section className="px-4 summary">
                         <hr />
+                        <h2 className="font-yaLike text-defaultBlack">Resumo</h2>
                         {
                             products.map(item =>
                                 <>
@@ -50,8 +51,8 @@ const SummaryProducts = ({ products }) => {
                             )
                         }
                         <Link to="/">Adicionar mais itens</Link>
-                        <section className="cartTotal">
-                            <div className="subtotal">
+                        <section className="cartTotal text-blackOpacity">
+                            <div className="subtotal text-defaultBlack">
                                 <span className="products">Subtotal</span>
                                 <span className="priceSubtotal">R$ {(priceSubtotal / 100).toFixed(2)}</span>
                             </div>
@@ -64,7 +65,7 @@ const SummaryProducts = ({ products }) => {
                                 <span className="priceDelivery">R$ {(priceDelivery / 100).toFixed(2)}</span>
                             </div>
                             <hr />
-                            <div className="totalAmount">
+                            <div className="totalAmount text-defaultBlack">
                                 <span className="amount">Total</span>
                                 <span className="amountPrice">R$ {(priceAmount / 100).toFixed(2)}</span>
                             </div>
