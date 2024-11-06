@@ -9,6 +9,9 @@ const DataUser = () => {
 
     // Validação de check em radio
     const [selectOption, setSelectionOption] = useState(null);
+    const [nameClient, setNameClient] = useState(null);
+
+    console.log('Nome cliente: ', nameClient)
 
     const handleChange = (event) => {
         setSelectionOption(event.target.value)
@@ -20,8 +23,7 @@ const DataUser = () => {
                 <h3 className='font-yaLike text-defaultBlack mb-6'>Informe seus dados</h3>
                 <form action="/" className="form-tag flex flex-col">
                     <label htmlFor="name">Nome: * </label>
-                    <input className="style-input style-focus" type="text" id='name' name='name' placeholder='Nome' />
-
+                    <input className="style-input style-focus" type="text" id='name' name='name' placeholder='Nome' onChange={(e) => setNameClient(e.target.value)} />
                     <label htmlFor="phone">Contato {`(whatsapp)`}: *</label>
                     <input className="style-input style-focus" type="tel" id='phone' name='phone' placeholder='DDD + Número' pattern={regex} />
                 </form>

@@ -11,6 +11,7 @@ import UpdateProduct from "../cart/UpdateProduct";
 import { errorMessages } from "../../utils/messages";
 
 import Section from '../../styles/CardsMinStyled';
+import SummaryProducts from "../cart/SummaryProduct";
 
 const CardsMin = ({ setProducts, products }) => {
 
@@ -50,7 +51,7 @@ const CardsMin = ({ setProducts, products }) => {
 
                     <>
 
-                        <section className="section-cart bg-defaultBody h-screen" id="section-cart">
+                        <section className="section-cart bg-defaultBody" id="section-cart">
                             <h1 className='font-yaLike mt-8 ml-8 text-left'>Meus pedidos</h1>
                             <>
                                 {
@@ -77,7 +78,7 @@ const CardsMin = ({ setProducts, products }) => {
 
                                     ))
                                 }
-                                <DataUser />
+                                <SummaryProducts products={products}/>
                             </>
 
                         </section>
