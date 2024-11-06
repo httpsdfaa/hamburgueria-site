@@ -11,6 +11,7 @@ const data = require('./data-products/data')
 
 const express = require('express');
 const cors = require('cors');
+const mercadoPagoConfig = require('./services/mercadoPago/mercadoPago.config');
 const app = express();
 
 app.use(cors());
@@ -36,6 +37,8 @@ app.get('/products', (req, res) => {
         res.status(404).json({message: 'Produto não encontrado'})
     }
 })
+
+mercadoPagoConfig(200, 'pagamento de teste 01', 'pix', 'deivisoncode@gmail.com')
 
 const PORT = process.env.PORT
 app.listen(PORT, () => {
