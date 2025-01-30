@@ -13,6 +13,8 @@ const Section = styled.section `
     & > div.header-pay {
         display: flex;
         justify-content: center;
+        flex-direction: column;
+        height: 100vh;
         padding: 5px;
     }
 `

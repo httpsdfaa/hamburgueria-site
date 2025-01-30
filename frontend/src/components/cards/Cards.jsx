@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 
+import 'dotenv/config';
+
 import SandwichCard from './SandwichCard';
 import DrinkCard from './DrinkCard';
 
@@ -10,8 +12,6 @@ import Button from '../../styles/Multi-styled';
 import { CgAdd } from "react-icons/cg";
 
 import getConsolidatedProducts from "../../utils/services";
-
-const font_family = 'font-yaLike';
 
 function Cards({ setProducts, products }) {
     // Constantes para Carousel
@@ -34,10 +34,11 @@ function Cards({ setProducts, products }) {
     const [promotion, setPromotion] = useState([]);
 
     useEffect(() => {
+        // Requisitando dados do backend
         const axiosBurger = async () => {
             try {
                 // fazendo requisição
-                const response = await axios.get('http://192.168.100.89:3001/products')
+                const response = await axios.get(process.env.REACT_APP_API_URL)
                 setBurger(response.data.sanduiches)
                 setDrink(response.data.bebidas)
                 setPromotion(response.data.promotions)

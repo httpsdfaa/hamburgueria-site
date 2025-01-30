@@ -18,6 +18,7 @@ const Payment = () => {
                 <button className="btn-pay" onClick={navigateCart}><IoIosArrowBack size="25px" color="#805557"/></button>
                 <div className="header-pay">
                     <h2 className="font-yaLike">Pagamento</h2>
+                    <p>Etapa em desenvolvimento</p>
                 </div>
             </Section>
         </>

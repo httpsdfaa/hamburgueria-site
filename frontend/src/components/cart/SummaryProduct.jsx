@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 
-import Payment from "./Payment";
-
 import Section from "../../styles/SummaryProductStyled";
 import Button from "react-bootstrap/Button";
 
