@@ -11,7 +11,7 @@ const data = require('./data-products/data')
 
 const express = require('express');
 const cors = require('cors');
-const mercadoPagoConfig = require('./services/mercadoPago/mercadoPago.config');
+// const mercadoPagoConfig = require('./services/mercadoPago/mercadoPago.config');
 const app = express();
 
 app.use(cors());
@@ -38,7 +38,7 @@ app.get('/products', (req, res) => {
     }
 })
 
-// mercadoPagoConfig(200, 'pagamento de teste 01', 'pix', 'deivisoncode@gmail.com')
+// mercadoPagoConfig(150, 'pagamento de teste 01', 'pix', 'deivisoncode@gmail.com')
 
 const PORT = process.env.PORT
 app.listen(PORT, () => {
