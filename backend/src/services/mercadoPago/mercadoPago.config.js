@@ -7,8 +7,13 @@ function mercadoPagoConfig(transaction_amount, description, payment_method_id, e
 
     // Inicializando o client
     const client = new MercadoPagoConfig({
+<<<<<<< HEAD
         accessToken: 'TEST-7826225987722017-110616-32d039a178487df23ae8366909888f9e-557330444',
         options: { timeout: 5000, idempotencyKey}
+=======
+        accessToken: 'accessToken mercado pago',
+        options: { timeout: 5000, idempotencyKey: 'abc' }
+>>>>>>> 46bb9e86e6e752370c0dc6027233f2a6b33debe0
     });
 
     // Inicializando a API
